@@ -33,7 +33,7 @@ const serviceController = {
     get: async(req, res) => {
         try {
             
-            const id = req.params.id
+            const id = req.params.id;
             const service = await ServiceModel.findById(id);
 
             if(!service) {
@@ -50,7 +50,7 @@ const serviceController = {
     delete: async(req, res) => {
         try {
 
-            const id = req.params.id
+            const id = req.params.id;
             const service = await ServiceModel.findById(id);
 
             if(!service) {
@@ -65,7 +65,26 @@ const serviceController = {
         } catch (error) {
             console.log(error)
         }
-    }
+    },
+    update: async(req, res) => {
+
+        const id = req.params.id
+        const service = {
+            name: req.body.name,
+            description: req.body.description,
+            price: req.body.price,
+            image: req.body.image,
+        };
+
+        const updatedService = await ServiceModel.findByIdAndUpdate(id, service);
+
+        if(!updatedService) {
+            res.status(404).json({msg: "Serviço não Encontrado!"})
+            return;
+        };
+
+        res.status(200).json({service, msg: "Serviço Atualizado com Sucesso!"});
+    },
 };
 
 module.exports = serviceController;
