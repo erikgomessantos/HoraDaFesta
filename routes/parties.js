@@ -11,6 +11,10 @@ router
 
 router
  .route("/parties/:id")
- .get((req, res) => partyController.get(req, res)); 
+ .get((req, res) => partyController.get(req, res));
+ 
+router
+ .route("/parties/:id")
+ .delete((req, res) => partyController.delete(req, res)); 
 
 module.exports = router;
