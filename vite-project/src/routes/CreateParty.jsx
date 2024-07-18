@@ -8,6 +8,13 @@ const CreateParty = () => {
 
     const [services, setServices] = useState([]);
 
+    const [title, setTitle] = useState("");
+    const [author, setAuthor] = useState("");
+    const [description, setDescription] = useState("");
+    const [budget, setBudget] = useState(0);
+    const [image, setImage] = useState("");
+    const [partyServices, setPartyServices] = useState([]);
+
     // Load Services
     
     useEffect(() => {
@@ -20,33 +27,62 @@ const CreateParty = () => {
         }
 
         loadServices();
-
     }, [])
+
+    // Add or Remove Services
+    const handleServices = (e) => {
+        const checked = e.target.checked
+        const value = e.target.value
+
+        const filteredService = services.filter((s) => s._id === value);
+
+        if(checked) {
+            setPartyServices((services) => [...services, filteredService[0]])
+        } else {
+            setPartyServices((services) => services.filter((s) => s._id !== value))
+        }
+        console.log(partyServices)
+    };
+
+    // Create a New Party
+    const createParty = (e) => {
+        e.preventDefault();
+
+        const party = {
+            title,
+            author,
+            description,
+            budget,
+            image,
+            services: partyServices,
+        };
+        console.log(party)
+    };
 
     return (
         <div className="form-page">
             <h2>Crie sua próxima Festa</h2>
             <p>Defina o seu orçamento e escolha os serviços</p>
-            <form>
+            <form onSubmit={(e) => createParty(e)}>
                 <label>
                     <span>Nome da Festa:</span>
-                    <input type="text" placeholder="Seja Criativo..." required/>
+                    <input type="text" placeholder="Seja Criativo..." required onChange={(e) => setTitle(e.target.value)}value={title}/>
                 </label>
                 <label>
                     <span>Anfitrião:</span>
-                    <input type="text" placeholder="Quem está dando a Festa?" required/>
+                    <input type="text" placeholder="Quem está dando a Festa?" required onChange={(e) => setAuthor(e.target.value)}value={author}/>
                 </label>
                 <label>
                     <span>Descrição:</span>
-                    <textarea placeholder="Conte mais sobre a Festa..." required></textarea>
+                    <textarea placeholder="Conte mais sobre a Festa..." required onChange={(e) => setDescription(e.target.value)}value={description}></textarea>
                 </label>
                 <label>
                     <span>Orçamento:</span>
-                    <input type="number" placeholder="Quanto você pretende Investir?" required/>
+                    <input type="number" placeholder="Quanto você pretende Investir?" required onChange={(e) => setBudget(e.target.value)}value={budget}/>
                 </label>
                 <label>
                     <span>Imagem:</span>
-                    <input type="text" placeholder="Insira a URL de uma Imagem" required/>
+                    <input type="text" placeholder="Insira a URL de uma Imagem" required onChange={(e) => setImage(e.target.value)}value={image}/>
                 </label>
                 <div>
                     <h2>Escolha os serviços</h2>
@@ -58,7 +94,7 @@ const CreateParty = () => {
                                 <p className="service-name">{service.name}</p>
                                 <p className="service-price">R${service.price}</p>
                                 <div className="checkbox-container">
-                                    <input type="checkbox" value={service.id}/>
+                                    <input type="checkbox" value={service._id} onChange={(e) => handleServices(e)} />
                                     <p>Marque para solicitar</p>
                                 </div>
                             </div>
