@@ -2,6 +2,7 @@ import React from "react";
 import partyFetch from "../axios/config";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import "./Form.css";
 
 const CreateParty = () => {
 
