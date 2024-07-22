@@ -20,7 +20,7 @@ const partyController = {
                 description: req.body.description,
                 budget: req.body.budget,
                 image: req.body.image,
-                services: req.body.services
+                services: req.body.services,
             };
 
             if(party.services && !checkPartyBudget(party.budget, party.services)) {

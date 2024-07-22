@@ -6,9 +6,9 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Pages
-import Home from "./routes/Home.jsx";
-import CreateParty from "./routes/CreateParty.jsx";
-import Party from "./routes/Party.jsx";
+import Home from "./routes/Home";
+import CreateParty from "./routes/CreateParty";
+import Party from "./routes/Party";
 
 const router = createBrowserRouter([
   {
