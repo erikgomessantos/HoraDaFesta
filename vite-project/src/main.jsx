@@ -9,6 +9,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from "./routes/Home";
 import CreateParty from "./routes/CreateParty";
 import Party from "./routes/Party";
+import EditParty from "./routes/EditParty";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/party/:id",
         element: <Party />,
+      },
+      {
+        path: "/party/edit/:id",
+        element: <EditParty />,
       },
     ],
   },
