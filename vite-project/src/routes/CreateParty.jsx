@@ -19,8 +19,7 @@ const CreateParty = () => {
 
     const navigate = useNavigate();
 
-    // Load Services
-    
+    // Load Services  
     useEffect(() => {
         
         const loadServices = async () => {
@@ -28,10 +27,10 @@ const CreateParty = () => {
             const res = await partyFetch.get("/services");
             
             setServices(res.data)
-        }
+        };
 
         loadServices();
-    }, [])
+    }, []);
 
     // Add or Remove Services
     const handleServices = (e) => {
