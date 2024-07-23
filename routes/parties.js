@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const partyController = require("../controllers/partyController");
 
+// Endpoints
 router
  .route("/parties")
  .post((req, res) => partyController.create(req, res));
