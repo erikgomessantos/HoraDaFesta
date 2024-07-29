@@ -1,10 +1,45 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// pages
+import Home from "./routes/Home";
+import CreateParty from "./routes/CreateParty";
+import Party from "./routes/Party";
+import EditParty from "./routes/EditParty";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/party/new",
+        element: <CreateParty />,
+      },
+      {
+        path: "/party/:id",
+        element: <Party />,
+      },
+      {
+        path: "/party/edit/:id",
+        element: <EditParty />,
+      },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  </React.StrictMode>
+);
