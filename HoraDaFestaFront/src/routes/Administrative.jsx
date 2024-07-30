@@ -1,6 +1,7 @@
 import partyFetch from "../axios/config";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import useToast from "../../hooks/useToast";
 import "./Form.css";
 
 const Administrative = () => {
@@ -9,15 +10,29 @@ const Administrative = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    const navigate = useNavigate();
+
     // Create a new User
-    const createUser = (e) => {
+    const createUser = async (e) => {
         e.preventDefault();
 
-        const user = {
-            name,
-            email,
-            password,
-        };
+        try {
+            const user = {
+                name,
+                email,
+                password,
+            };
+    
+            const res = await partyFetch.post("/users", user);
+    
+            if(res.status === 201) {
+                navigate("/");
+    
+                useToast(res.data.msg);
+            }
+        } catch (error) {
+            useToast(error.response.data.msg, "error");
+        }
     };
 
     return <div className="form-page">
