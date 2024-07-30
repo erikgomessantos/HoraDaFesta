@@ -15,6 +15,11 @@ const Navbar = () => {
             Criar Festa
           </NavLink>
         </li>
+        <li>
+        <NavLink to="/adm" className="btn">
+            ADM
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
