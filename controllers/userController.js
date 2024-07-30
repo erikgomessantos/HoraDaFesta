@@ -16,6 +16,16 @@ const userController = {
         } catch (error) {
             console.log(error);
         }
+    },
+    getAll: async(req, res) => {
+      try {
+        
+        const users = await UserModel.find();
+
+        res.json(users);
+      } catch (error) {
+        
+      }
     }
 };
 
