@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // pages
 import Home from "./routes/Home";
-import Administrative from "./routes/Administrative";
+import CreateUsers from "./routes/CreateUsers";
 import CreateParty from "./routes/CreateParty";
 import Party from "./routes/Party";
 import EditParty from "./routes/EditParty";
@@ -22,8 +22,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/adm",
-        element: <Administrative />,
+        path: "/create",
+        element: <CreateUsers />,
       },
       {
         path: "/party/new",

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import useToast from "../../hooks/useToast";
 import "./Form.css";
 
-const Administrative = () => {
+const CreateUsers = () => {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -36,7 +36,7 @@ const Administrative = () => {
     };
 
     return <div className="form-page">
-        <h2>Painel ADM</h2>
+        <h2>Criar Novo Usuário</h2>
         <form onSubmit={(e) => createUser(e)}>
             <label>
                 <span>Nome</span>
@@ -67,4 +67,4 @@ const Administrative = () => {
     </div>;
 };
 
-export default Administrative;
+export default CreateUsers;

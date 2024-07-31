@@ -16,8 +16,8 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-        <NavLink to="/adm" className="btn">
-            ADM
+        <NavLink to="/create" className="btn">
+            Criar Usuário
           </NavLink>
         </li>
       </ul>
