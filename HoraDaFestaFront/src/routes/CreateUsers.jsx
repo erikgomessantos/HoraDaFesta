@@ -26,7 +26,7 @@ const CreateUsers = () => {
             const res = await partyFetch.post("/users", user);
     
             if(res.status === 201) {
-                navigate("/");
+                navigate("/users");
     
                 useToast(res.data.msg);
             }

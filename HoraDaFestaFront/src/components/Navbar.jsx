@@ -16,8 +16,13 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-        <NavLink to="/create" className="btn">
+        <NavLink to="/user/new" className="btn">
             Criar Usuário
+          </NavLink>
+        </li>
+        <li>
+        <NavLink to="/users" className="btn">
+            Usuários
           </NavLink>
         </li>
       </ul>

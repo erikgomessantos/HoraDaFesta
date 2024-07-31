@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // pages
 import Home from "./routes/Home";
 import CreateUsers from "./routes/CreateUsers";
+import Users from "./routes/Users";
 import CreateParty from "./routes/CreateParty";
 import Party from "./routes/Party";
 import EditParty from "./routes/EditParty";
@@ -22,8 +23,12 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/create",
+        path: "/user/new",
         element: <CreateUsers />,
+      },
+      {
+        path: "/users",
+        element: <Users />,
       },
       {
         path: "/party/new",
