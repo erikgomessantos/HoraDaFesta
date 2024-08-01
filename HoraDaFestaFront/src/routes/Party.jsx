@@ -1,7 +1,5 @@
 import partyFetch from "../axios/config";
-
 import { useState, useEffect } from "react";
-
 import { useParams, Link, useNavigate } from "react-router-dom";
 import useToast from "../../hooks/useToast";
 
@@ -25,7 +23,7 @@ const Party = () => {
     loadParty();
   }, []);
 
-  //  Delete this party
+  // Delete this party
   const handleDelete = async () => {
     const res = await partyFetch.delete(`/parties/${id}`);
 

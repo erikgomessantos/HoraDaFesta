@@ -1,15 +1,16 @@
 import partyFetch from "../axios/config";
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import useToast from "../../hooks/useToast";
 
 const Details = () => {
     const {id} = useParams();
-
     const [user, setUser] = useState(null);
+    const navigate = useNavigate();
 
     // Load User
     useEffect(() => {
-        const loadUser = async() => {
+        const loadUser = async () => {
             const res = await partyFetch.get(`/users/${id}`);
 
             setUser(res.data);
@@ -18,6 +19,17 @@ const Details = () => {
         loadUser();
     }, []);
 
+    // Delete this user
+    const handleDelete = async () => {
+        const res = await partyFetch.delete(`/users/${id}`);
+
+        if(res.status === 200) {
+            navigate("/users")
+
+            useToast(res.data.msg)
+        }
+    };
+
     if(!user) return <p>Carregando...</p>;
 
     return <div>
@@ -25,7 +37,7 @@ const Details = () => {
         <p>{user.email}</p>
         <div className="actions-container">
             <Link>Editar</Link>
-            <button>Excluir</button>
+            <button onClick={handleDelete}>Excluir</button>
         </div>
     </div>;
 };
