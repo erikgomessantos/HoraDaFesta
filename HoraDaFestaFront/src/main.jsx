@@ -10,6 +10,7 @@ import Home from "./routes/Home";
 import CreateUsers from "./routes/CreateUsers";
 import Users from "./routes/Users";
 import UsersDetails from "./routes/UsersDetails";
+import EditUsers from "./routes/EditUsers";
 import CreateParty from "./routes/CreateParty";
 import Party from "./routes/Party";
 import EditParty from "./routes/EditParty";
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/users/:id",
         element: <UsersDetails />,
+      },
+      {
+        path: "/users/edit/:id",
+        element: <EditUsers />,
       },
       {
         path: "/party/new",

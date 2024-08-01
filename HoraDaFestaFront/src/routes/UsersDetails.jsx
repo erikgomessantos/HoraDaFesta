@@ -36,7 +36,7 @@ const Details = () => {
         <h1>{user.name}</h1>
         <p>{user.email}</p>
         <div className="actions-container">
-            <Link>Editar</Link>
+            <Link to={`/users/edit/${user._id}`}>Editar</Link>
             <button onClick={handleDelete}>Excluir</button>
         </div>
     </div>;
