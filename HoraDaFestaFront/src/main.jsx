@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // pages
 import Home from "./routes/Home";
+import Login from "./routes/Login";
 import CreateUsers from "./routes/CreateUsers";
 import Users from "./routes/Users";
 import UsersDetails from "./routes/UsersDetails";
@@ -17,6 +17,10 @@ import EditParty from "./routes/EditParty";
 
 const router = createBrowserRouter([
   {
+    path: "/login",
+    element: <Login />,
+  },
+  { 
     path: "/",
     element: <App />,
     children: [
