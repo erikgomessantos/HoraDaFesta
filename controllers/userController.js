@@ -8,6 +8,7 @@ const userController = {
             name: req.body.name,
             email: req.body.email,
             password: req.body.password,
+            
           };
           
           const response = await UserModel.create(user);
