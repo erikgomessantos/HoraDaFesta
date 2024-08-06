@@ -67,7 +67,7 @@ const EditUser = () => {
               <span>Senha:</span>
               <input
                 type="text"
-                onChange={(e) => setUser({ ...user, email: e.target.value})}
+                onChange={(e) => setUser({ ...user, password: e.target.value})}
                 value={user.password}
                 required
              />
