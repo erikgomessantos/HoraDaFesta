@@ -27,7 +27,6 @@ const Register = () => {
                     />
                 </label>
                 <input type="submit" value="Cadastrar" className="btn"/>
-                <p>Ou</p>
                 <p>Já possui conta? <Link to="/login">Fazer Login</Link></p>
             </form>
         </div>;
