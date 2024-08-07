@@ -27,7 +27,7 @@ const Register = () => {
             const res = await partyFetch.post("/users", user);
     
             if(res.status === 201) {
-                navigate("/");
+                navigate("/login");
     
                 useToast(res.data.msg);
             }
