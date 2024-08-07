@@ -25,6 +25,11 @@ const Navbar = () => {
             Usuários
           </NavLink>
         </li>
+        <li>
+        <NavLink to="/login" className="btn">
+            Sair
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
