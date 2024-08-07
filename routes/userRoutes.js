@@ -10,7 +10,8 @@ const { register } = require("../controllers/UserController");
 //   getUserById,
 
 // // Middlewares
-// const validate = require("../middlewares/handleValidations");
+const validate = require("../middlewares/handleValidation");
+const { userCreateValidation } = require("../middlewares/userValidation");
 // const {
 //   userCreateValidation,
 //   loginValidation,
@@ -20,7 +21,7 @@ const { register } = require("../controllers/UserController");
 // const { imageUpload } = require("../middlewares/imageUpload");
 
 // // Routes
-router.post("/register", register);
+router.post("/register", userCreateValidation(), validate, register);
 // router.get("/profile", authGuard, getCurrentUser);
 // router.post("/login", loginValidation(), validate, login);
 // router.put(
