@@ -29,16 +29,18 @@ const userCreateValidation = () => {
   ];
 };
 
-// const loginValidation = () => {
-//   return [
-//     body("email")
-//       .isString()
-//       .withMessage("O e-mail é obrigatório.")
-//       .isEmail()
-//       .withMessage("Insira um e-mail válido"),
-//     body("password").isString().withMessage("A senha é obrigatória."),
-//   ];
-// };
+const loginValidation = () => {
+    return [
+      body("email")
+        .isString()
+        .withMessage("O e-mail é obrigatório.")
+        .isEmail()
+        .withMessage("Insira um e-mail válido"),
+      body("password")
+      .isString()
+      .withMessage("A senha é obrigatória."),
+    ];
+};
 
 // const userUpdateValidation = () => {
 //   return [
@@ -55,6 +57,6 @@ const userCreateValidation = () => {
 
 module.exports = {
   userCreateValidation,
-//   loginValidation,
+  loginValidation,
 //   userUpdateValidation,
 };
