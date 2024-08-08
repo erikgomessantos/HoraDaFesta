@@ -49,12 +49,12 @@ const register = async (req, res) => {
   });
 };
 
-// // Get logged in user
-// const getCurrentUser = async (req, res) => {
-//   const user = req.user;
+// Get logged in user
+const getCurrentUser = async (req, res) => {
+  const user = req.user;
 
-//   res.status(200).json(user);
-// };
+  res.status(200).json(user);
+};
 
 // Sign user in
   const login = async (req, res) => {
@@ -81,66 +81,52 @@ const register = async (req, res) => {
   });
 };
 
-// // Update user
-// const update = async (req, res) => {
-//   const { name, password, bio } = req.body;
+// Update user
+const update = async (req, res) => {
+  const { name, password, bio } = req.body;
 
-//   let profileImage = null;
+  const reqUser = req.user;
 
-//   if (req.file) {
-//     profileImage = req.file.filename;
-//   }
+  const user = await User.findById(mongoose.Types.ObjectId(reqUser._id)).select("-password");
 
-//   const reqUser = req.user;
+  if (name) {
+    user.name = name;
+  }
 
-//   const user = await User.findById(mongoose.Types.ObjectId(reqUser._id)).select(
-//     "-password"
-//   );
+  if (password) {
+    const salt = await bcrypt.genSalt();
+    const passwordHash = await bcrypt.hash(password, salt);
+    user.password = passwordHash;
+  }
 
-//   if (name) {
-//     user.name = name;
-//   }
+  if (bio) {
+    user.bio = bio;
+  }
 
-//   if (password) {
-//     const salt = await bcrypt.genSalt();
-//     const passwordHash = await bcrypt.hash(password, salt);
-//     user.password = passwordHash;
-//   }
+  await user.save();
 
-//   if (profileImage) {
-//     user.profileImage = profileImage;
-//   }
+  res.status(200).json(user);
+};
 
-//   if (bio) {
-//     user.bio = bio;
-//   }
+// Get user by id
+const getUserById = async (req, res) => {
+  const { id } = req.params;
 
-//   await user.save();
+  const user = await User.findById(mongoose.Types.ObjectId(id)).select("-password");
 
-//   res.status(200).json(user);
-// };
+  // Check if user exists
+  if (!user) {
+    res.status(404).json({ errors: ["Usuário não encontrado!"] });
+    return;
+  }
 
-// // Get user by id
-// const getUserById = async (req, res) => {
-//   const { id } = req.params;
-
-//   const user = await User.findById(mongoose.Types.ObjectId(id)).select(
-//     "-password"
-//   );
-
-//   // Check if user exists
-//   if (!user) {
-//     res.status(404).json({ errors: ["Usuário não encontrado!"] });
-//     return;
-//   }
-
-//   res.status(200).json(user);
-// };
+  res.status(200).json(user);
+};
 
 module.exports = {
   register,
-//   getCurrentUser,
+  getCurrentUser,
   login,
-//   update,
-//   getUserById,
+  update,
+  getUserById,
 };
