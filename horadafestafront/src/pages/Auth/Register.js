@@ -2,7 +2,7 @@ import "./Auth.css";
 
 // Components
 import { Link } from "react-router-dom";
-// import Message from "../../components/Message";
+import Message from "../../components/Message";
 
 // Hooks
 import { useState, useEffect } from "react";
@@ -43,7 +43,7 @@ const Register = () => {
 
   return (
     <div id="register">
-      <h2>Hora Da Festa</h2>
+      <h2>Hora da Festa</h2>
       <p className="subtitle">Cadastre-se para ver as fotos dos seus amigos.</p>
       <form onSubmit={handleSubmit}>
         <input
@@ -72,7 +72,7 @@ const Register = () => {
         />
         {!loading && <input type="submit" value="Cadastrar" />}
         {loading && <input type="submit" disabled value="Aguarde..." />}
-        {/* {error && <Message msg={error} type="error" />} */}
+        {error && <Message msg={error} type="error" />}
       </form>
       <p>
         Já tem conta? <Link to="/login">Clique aqui</Link>

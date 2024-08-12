@@ -20,9 +20,9 @@ const register = async (data) => {
 };
 
 // Logout a user
-// const logout = () => {
-//   localStorage.removeItem("user");
-// };
+const logout = () => {
+  localStorage.removeItem("user");
+};
 
 // Sign in a user
 // const login = async (data) => {
@@ -45,7 +45,7 @@ const register = async (data) => {
 
 const authService = {
   register,
-//   logout,
+  logout,
 //   login,
 };
 

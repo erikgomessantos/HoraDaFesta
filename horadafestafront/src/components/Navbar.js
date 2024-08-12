@@ -9,31 +9,31 @@ import {
   BsFillCameraFill,
 } from "react-icons/bs";
 
-// // Hooks
-// import { useState } from "react";
-// import { useAuth } from "../hooks/useAuth";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+// Hooks
+import { useState } from "react";
+import { useAuth } from "../hooks/useAuth";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-// // Redux
-// import { logout, reset } from "../slices/authSlice";
+// Redux
+import { logout, reset } from "../slices/authSlice";
 
 const Navbar = () => {
-//   const { auth } = useAuth();
-//   const { user } = useSelector((state) => state.auth);
+  const { auth } = useAuth();
+  const { user } = useSelector((state) => state.auth);
 
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
 
-//   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
 //   const [query, setQuery] = useState("");
 
-//   const handleLogout = () => {
-//     dispatch(logout());
-//     dispatch(reset());
+  const handleLogout = () => {
+    dispatch(logout());
+    dispatch(reset());
 
-//     navigate("/login");
-//   };
+    navigate("/login");
+  };
 
 //   const handleSearch = (e) => {
 //     e.preventDefault();
@@ -48,14 +48,15 @@ const Navbar = () => {
       <Link to="/">
         <h2>Hora da Festa</h2>
       </Link>
-      <form>
+      <form id="search-form" >
         <BsSearch />
         <input
           type="text"
           placeholder="Pesquisar"
+          
         />
       </form>
-      {/* <ul id="nav-links">
+      <ul id="nav-links">
         {auth ? (
           <>
             <li>
@@ -90,7 +91,7 @@ const Navbar = () => {
             </li>
           </>
         )}
-      </ul> */}
+      </ul>
     </nav>
   );
 };
