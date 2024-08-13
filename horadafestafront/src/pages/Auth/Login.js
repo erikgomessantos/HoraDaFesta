@@ -3,6 +3,7 @@ import "./Auth.css";
 // Components
 import { Link } from "react-router-dom";
 import Message from "../../components/Message";
+import { FcGoogle } from "react-icons/fc";
 
 // Hooks
 import { useEffect, useState } from "react";
@@ -61,6 +62,8 @@ const Login = () => {
       <p>
         Não tem uma conta? <Link to="/register">Clique aqui</Link>
       </p>
+      <p>Ou</p>
+      <button>Fazer login com google <FcGoogle /><Link to="/"></Link></button>
     </div>
   );
 };
