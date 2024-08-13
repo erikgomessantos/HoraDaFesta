@@ -45,6 +45,7 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
+          required
           placeholder="E-mail"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
@@ -63,7 +64,7 @@ const Login = () => {
         Não tem uma conta? <Link to="/register">Clique aqui</Link>
       </p>
       <p>Ou</p>
-      <button>Fazer login com google <FcGoogle /><Link to="/"></Link></button>
+      <button>Fazer login com Google <FcGoogle /> <Link to="/"></Link></button>
     </div>
   );
 };
