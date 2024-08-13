@@ -44,7 +44,7 @@ const Register = () => {
   return (
     <div id="register">
       <h2>Hora da Festa</h2>
-      <p className="subtitle">Cadastre-se para ver as fotos dos seus amigos.</p>
+      <p className="subtitle">Cadastre-se para criar as suas festas</p>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
