@@ -1,13 +1,13 @@
 import "./Navbar.css";
-import { LuPartyPopper } from "react-icons/lu";
 
 // Components
 import { NavLink, Link } from "react-router-dom";
 import {
   BsSearch,
-  BsHouseDoorFill,
-  BsFillPersonFill,
 } from "react-icons/bs";
+import { LuPartyPopper } from "react-icons/lu";
+import { IoHome } from "react-icons/io5";
+import { IoPerson } from "react-icons/io5";
 
 // Hooks
 // import { useState } from "react";
@@ -61,7 +61,7 @@ const Navbar = () => {
           <>
             <li>
               <NavLink to="/">
-                <BsHouseDoorFill />
+                <IoHome />
               </NavLink>
             </li>
             {user && (
@@ -73,7 +73,7 @@ const Navbar = () => {
             )}
             <li>
               <NavLink to="/profile">
-                <BsFillPersonFill />
+                <IoPerson />
               </NavLink>
             </li>
             <li>
