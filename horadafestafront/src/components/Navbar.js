@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import { LuPartyPopper } from "react-icons/lu";
 
 // Components
 import { NavLink, Link } from "react-router-dom";
@@ -6,11 +7,10 @@ import {
   BsSearch,
   BsHouseDoorFill,
   BsFillPersonFill,
-  BsFillCameraFill,
 } from "react-icons/bs";
 
 // Hooks
-import { useState } from "react";
+// import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -67,7 +67,7 @@ const Navbar = () => {
             {user && (
               <li>
                 <NavLink to={`/users/${user._id}`}>
-                  <BsFillCameraFill />
+                  <LuPartyPopper />
                 </NavLink>
               </li>
             )}
