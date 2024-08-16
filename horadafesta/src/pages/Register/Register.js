@@ -9,7 +9,7 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
 
-    const { createUser, error: authError, loading } = UserAuthentication();
+    const { createUser, error: authError } = UserAuthentication();
 
     const handleSubmit = async (e) => {
         e.preventDefault()
