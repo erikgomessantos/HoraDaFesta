@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const Party = () => {
     return (
         <div className="party">
-      <h1>
+      <h2>
         Festas
-      </h1>
+      </h2>
       <p>
         Aqui você pode consultar as suas festas. Caso não tenha nenhuma, basta clicar no botão abaixo.
       </p>

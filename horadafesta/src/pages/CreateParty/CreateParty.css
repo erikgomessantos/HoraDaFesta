@@ -1,0 +1,12 @@
+.create_party {
+    text-align: center;
+}
+
+.create_party h2 {
+    font-size: 2.2em;
+}
+
+.create_party p {
+    color: #aaa;
+    margin-bottom: 2em;
+}
