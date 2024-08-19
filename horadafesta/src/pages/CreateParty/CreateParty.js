@@ -11,13 +11,24 @@ const CreateParty = () => {
     
     const {user} = useAuthValue();
     const {insertDocument, response} = UserInsert("parties");
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setFormError("");
 
         // URL Validation
+        try {
+
+            new URL(image)
+
+        } catch (error) {
+            
+            setFormError("A imagem precisa ser uma URL.")
+        };
+
         // Verificar todos os valores
+        if(formError) return;
 
         insertDocument({
             title,
@@ -27,6 +38,7 @@ const CreateParty = () => {
         })
 
         // Redirect to home
+        navigate("/");
     };
     
     return (

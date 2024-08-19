@@ -38,9 +38,6 @@ const Navbar = () => {
                         <NavLink to="/dashboard">Dashboard</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/party">Festas</NavLink>
-                    </li>
-                    <li>
                         <button onClick={logout}>Sair</button>
                     </li>
                 </>

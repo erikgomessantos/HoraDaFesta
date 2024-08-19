@@ -11,7 +11,6 @@ import { AuthProvider } from './context/AuthContext';
 
 // Pages
 import Home from "./pages/Home/Home";
-import Party from "./pages/Party/Party";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import CreateParty from './pages/CreateParty/CreateParty';
@@ -47,7 +46,6 @@ function App() {
           <div className='container'>
             <Routes>
               <Route path="/" element={user ? <Home /> : <Navigate to="/login"/>} />
-              <Route path="/party" element={user ? <Party /> : <Navigate to="/login"/>} />
               <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
               <Route path="/register" element={!user ? <Register /> : <Navigate to="/" />} />
               <Route path="/parties/create" element={user ? <CreateParty /> : <Navigate to="/login" />} />
