@@ -7,7 +7,7 @@ const PartyDetail = ({ party }) => {
             <img src={party.image} alt={party.title}/>
             <h2>{party.title}</h2>
             <p className="createdby">{party.createdBy}</p>
-            <Link to={`/parties/${party.id}`} className="btn btn-outline">
+            <Link to={`/party/${party.id}`} className="btn btn-outline">
                 Ver            
             </Link>
         </div>

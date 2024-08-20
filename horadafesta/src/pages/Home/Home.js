@@ -1,8 +1,8 @@
 import "../Home/Home.css";
 
 // Hooks
-import { useNavigate, Link } from "react-router-dom";
-import { useState } from "react";
+import { Link } from "react-router-dom";
+// import { useState } from "react";
 import { UserFetchParties } from "../../hooks/UserFetchParties";
 import PartyDetail from "../../components/PartyDetail";
 
@@ -19,7 +19,7 @@ const Home = () => {
                 {parties && parties.length === 0 && (
                     <div className="noparties">
                         <p>Ainda não foram criadas Festas</p>
-                        <Link to="/parties/create" className="btn">Criar sua primeira Festa</Link>
+                        <Link to="/party/:id" className="btn">Criar sua primeira Festa</Link>
                     </div>
                 )}
             </div>
