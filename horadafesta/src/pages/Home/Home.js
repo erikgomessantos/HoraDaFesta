@@ -6,6 +6,7 @@ import { useState } from "react";
 
 
 const Home = () => {
+    const [query, setQuery] = useState("");
     const [parties] = useState([]);
 
     return (
