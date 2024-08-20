@@ -5,7 +5,7 @@ import {
     query,
     orderBy,
     onSnapshot,
-    // where,
+    where,
 } from "firebase/firestore";
 
 export const UserFetchParties = (docCollection, search = null, uid = null) => {
@@ -30,8 +30,15 @@ export const UserFetchParties = (docCollection, search = null, uid = null) => {
                 let q;
 
                 // dashboard
-
-                q = await query(collectionRef, orderBy("createdAt", "desc"));
+                if(uid) {
+                    q = await query(
+                    collectionRef,
+                    where("uid", "==", uid),    
+                    orderBy("createdAt", "desc")
+                );
+                } else {
+                    q = await query(collectionRef, orderBy("createdAt", "desc"));
+                }
             
                 await onSnapshot(q, (querySnapshot) => {
                     setDocuments(
