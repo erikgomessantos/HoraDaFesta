@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 // Hooks
 import { useAuthValue } from "../../context/AuthContext";
 import { UserFetchParties } from "../../hooks/UserFetchParties";
+import { UserDeleteParty } from "../../hooks/UserDeleteParty";
 
 const Dashboard = () => {
     const {user} = useAuthValue();
@@ -13,9 +14,7 @@ const Dashboard = () => {
     // User parties
     const {documents: parties, loading} = UserFetchParties("parties", null, uid);
 
-    const deleteParty = (id) => {
-
-    };
+    const {deleteDocument} = UserDeleteParty("parties");
 
     if(loading) {
         return <p>Carregando</p>
@@ -46,7 +45,7 @@ const Dashboard = () => {
                         <Link to={`/parties/edit/${party.id}`} className="btn btn-outline">
                             Editar
                         </Link>
-                        <button onClick={() => deleteParty(party.id)} className="btn btn-outline btn-danger">
+                        <button onClick={() => deleteDocument(party.id)} className="btn btn-outline btn-danger">
                             Excluir
                         </button>
                     </div>
