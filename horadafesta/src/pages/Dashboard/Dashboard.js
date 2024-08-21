@@ -13,8 +13,16 @@ const Dashboard = () => {
     // User parties
     const {documents: parties, loading} = UserFetchParties("parties", null, uid);
 
+    const deleteParty = (id) => {
+
+    };
+
+    if(loading) {
+        return <p>Carregando</p>
+    }
+
     return (
-        <div>
+        <div className="dashboard">
             <h2>Dashboard</h2>
             <p>Gerencie suas festas</p>
             {parties && parties.length === 0 ? (
@@ -23,13 +31,28 @@ const Dashboard = () => {
                     <Link to="/parties/create" className="btn">Criar sua primeira festa</Link>
                 </div>
             ) : (
-                <div>
-                    <p>Tem festa</p>
+              <>
+                <div className="party_header">
+                    <span>Título</span>
+                    <span>Ações</span>
                 </div>
+
+                {parties && parties.map((party) => <div key={party.id} className="party_row">
+                    <p>{party.title}</p>
+                    <div>
+                        <Link to={`/party/${party.id}`} className="btn btn-outline">
+                            Ver
+                        </Link>
+                        <Link to={`/parties/edit/${party.id}`} className="btn btn-outline">
+                            Editar
+                        </Link>
+                        <button onClick={() => deleteParty(party.id)} className="btn btn-outline btn-danger">
+                            Excluir
+                        </button>
+                    </div>
+                </div>)}
+              </>      
             )}
-            {parties && parties.map((party) => (
-                <h3>{party.title}</h3>
-            ))}
         </div>
     );
 };
