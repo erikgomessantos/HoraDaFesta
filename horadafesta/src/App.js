@@ -16,6 +16,7 @@ import Register from "./pages/Register/Register";
 import CreateParty from './pages/CreateParty/CreateParty';
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Party from "./pages/Party/Party";
+import EditParty from './pages/EditParty/EditParty';
 
 // Components
 import Navbar from "./components/Navbar";
@@ -51,6 +52,7 @@ function App() {
               <Route path="/register" element={!user ? <Register /> : <Navigate to="/" />} />
               <Route path="/parties/create" element={user ? <CreateParty /> : <Navigate to="/login" />} />
               <Route path="/party/:id" element={user ? <Party /> : <Navigate to="/login"/>} />
+              <Route path="/parties/edit/:id" element={user ? <EditParty /> : <Navigate to="/login"/>} />
               <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login"/>} />
             </Routes>
           </div>
