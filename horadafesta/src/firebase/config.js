@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-
+// LOGIN GOOGLE
+import { getAuth } from "firebase/auth";
+// LOGIN GOOGLE
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -15,5 +17,10 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
+
+// LOGIN GOOGLE
+export const auth = getAuth();
+export default app;
+// LOGIN GOOGLE
 
 export { db };

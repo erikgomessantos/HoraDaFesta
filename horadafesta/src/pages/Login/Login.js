@@ -1,6 +1,7 @@
 import "../Login/Login.css";
 import { useEffect, useState } from "react";
 import { UserAuthentication } from "../../hooks/userAuthentication";
+import LoginWithGoogle from "../../components/LoginWithGoogle";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -65,6 +66,7 @@ const Login = () => {
           </button>
         )}
         {error && <p className="error">{error}</p>}
+        <LoginWithGoogle/>
       </form>
     </div>
   );
