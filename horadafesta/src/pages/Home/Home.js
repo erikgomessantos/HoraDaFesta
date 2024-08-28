@@ -5,11 +5,15 @@ import { Link } from "react-router-dom";
 // import { useState } from "react";
 import { UserFetchParties } from "../../hooks/UserFetchParties";
 import PartyDetail from "../../components/PartyDetail";
+import { useAuthValue } from "../../context/AuthContext";
 
 const Home = () => {
     // const [query, setQuery] = useState("");
-    const {documents: parties, loading} = UserFetchParties("parties");
+    // const {documents: parties, loading} = UserFetchParties("parties");
+    const {user} = useAuthValue();
+    const uid = user.uid;
 
+    const {documents: parties, loading} = UserFetchParties("parties", null, uid);
     return (
         <div className="home">
             <h2>Veja suas festas</h2>
