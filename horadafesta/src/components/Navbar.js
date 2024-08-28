@@ -35,6 +35,9 @@ const Navbar = () => {
                         <NavLink to="/parties/create">Criar Festa</NavLink>
                     </li>
                     <li>
+                        <NavLink to="/contacts">Contatos</NavLink>
+                    </li>
+                    <li>
                         <NavLink to="/dashboard">Dashboard</NavLink>
                     </li>
                     <li>
