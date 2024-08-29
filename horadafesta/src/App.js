@@ -23,6 +23,8 @@ import Attractions from './pages/Attractions/Attractions';
 import CreateAttractions from './pages/CreateAttractions/CreateAttractions';
 import Tasks from './pages/Tasks/Tasks';
 import CreateTasks from './pages/CreateTasks/CreateTasks';
+import Places from './pages/Places/Places';
+import CreatePlaces from './pages/CreatePlaces/CreatePlaces';
 
 // Components
 import Navbar from "./components/Navbar";
@@ -66,6 +68,8 @@ function App() {
               <Route path="/attractions/create" element={user ? <CreateAttractions /> : <Navigate to="/login"/>} />
               <Route path="/tasks" element={user ? <Tasks /> : <Navigate to="/login"/>} />
               <Route path="/tasks/create" element={user ? <CreateTasks /> : <Navigate to="/login"/>} />
+              <Route path="/places" element={user ? <Places /> : <Navigate to="/login"/>} />
+              <Route path="/places/create" element={user ? <CreatePlaces /> : <Navigate to="/login"/>} />
             </Routes>
           </div>
           <Footer />
