@@ -19,6 +19,8 @@ import Party from "./pages/Party/Party";
 import EditParty from './pages/EditParty/EditParty';
 import Contacts from "./pages/Contacts/Contacts";
 import CreateContact from "./pages/CreateContact/CreateContact";
+import Attractions from './pages/Attractions/Attractions';
+import CreateAttractions from './pages/CreateAttractions/CreateAttractions';
 
 // Components
 import Navbar from "./components/Navbar";
@@ -58,6 +60,8 @@ function App() {
               <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login"/>} />
               <Route path="/contacts" element={user ? <Contacts /> : <Navigate to="/login"/>} />
               <Route path="/contacts/create" element={user ? <CreateContact /> : <Navigate to="/login"/>} />
+              <Route path="/attractions" element={user ? <Attractions /> : <Navigate to="/login"/>} />
+              <Route path="/attractions/create" element={user ? <CreateAttractions /> : <Navigate to="/login"/>} />
             </Routes>
           </div>
           <Footer />

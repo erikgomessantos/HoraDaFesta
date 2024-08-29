@@ -4,80 +4,67 @@ import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import { UserInsert } from "../../hooks/UserInsert";
 
-const CreateContact = () => {
+const CreateAttraction = () => {
     const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [nickname, setNickname] = useState("");
-    const [telephone, setTelephone] = useState("");
+    const [image, setImage] = useState("");
     const [formError, setFormError] = useState("");
     
     const {user} = useAuthValue();
-    const {insertDocument, response} = UserInsert("contacts");
+    const {insertDocument, response} = UserInsert("attractions");
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
          e.preventDefault();
          setFormError("");
 
+        // URL Validation
+        try {
+
+            new URL(image)
+
+        } catch (error) {
+            
+            setFormError("A imagem precisa ser uma URL.")
+        };
+
         // Verificar todos os valores
           if(formError) return;
 
         insertDocument({
         name,
-        nickname,
-        email,
-        telephone,
+        image,
         uid: user.uid,
         createdBy: user.displayName
    });
 
     //  Redirect to home
-        navigate("/contacts");
+        navigate("/attractions");
     };
     
     return (
         <div className="create_contact">
-            <h2>Cadastrar Contatos</h2>
+            <h2>Criar Atrações</h2>
             {<form onSubmit={handleSubmit}>
                 <label>
                     <span>Nome:*</span>
                     <input type="text"
                         name="name"
-                        placeholder="Nome do contato"
+                        placeholder="Nome da atração"
                         required 
                         onChange={(e) => setName(e.target.value)}
                         value={name}  
                     />
                 </label>
                 <label>
-                    <span>Apelido:</span>
+                    <span>URL da Imagem:</span>
                     <input type="text"
-                        name="nickname"
-                        placeholder="Apelido"
-                        onChange={(e) => setNickname(e.target.value)}
-                        value={nickname}  
+                        name="image"
+                        placeholder="Insira o endereço da imagem que tem a sua atração"
+                        onChange={(e) => setImage(e.target.value)}
+                        value={image}  
                     />
                 </label>
-                <label>
-                    <span>E-mail:*</span>
-                    <input type="email"
-                        name="email"
-                        placeholder="Insira o e-mail do contato"
-                        required 
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}  
-                    />
-                </label>
-                <label>
-                    <span>Telefone:</span>
-                    <input type="string"
-                        name="telephone"
-                        placeholder="(11)1234-5678"
-                        onChange={(e) => setTelephone(e.target.value)}
-                        value={telephone}  
-                    />
-                </label>
-                {!response.loading && <button className="btn">Cadastrar</button>}
+                {!response.loading && <button className="btn">Criar</button>}
                 {response.loading && (
                     <button className="btn" disabled>
                         Aguarde.. .
@@ -91,4 +78,4 @@ const CreateContact = () => {
     );
 };
 
-export default CreateContact;
+export default CreateAttraction;
