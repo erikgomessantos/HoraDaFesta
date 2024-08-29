@@ -1,41 +1,43 @@
 import "../Contacts/Contacts.css";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuthValue } from "../../context/AuthContext";
-import { UserInsert } from "../../hooks/UserInsert";
+import { Link } from "react-router-dom";
+// import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import { useAuthValue } from "../../context/AuthContext";
+// import { UserFetchParties } from "../../hooks/UserFetchParties";
+// import { UserInsert } from "../../hooks/UserInsert";
 
-const CreateContact = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [formError, setFormError] = useState("");
+const Contact = () => {
+    // const [name, setName] = useState("");
+    // const [email, setEmail] = useState("");
+    // const [formError, setFormError] = useState("");
     
-    const {user} = useAuthValue();
-    const {insertDocument, response} = UserInsert("contacts");
-    const navigate = useNavigate();
+    // const {user} = useAuthValue();
+    // const {insertDocument, response} = UserInsert("contacts");
+    // const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setFormError("");
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     setFormError("");
 
-        // Verificar todos os valores
-        if(formError) return;
+    //     // Verificar todos os valores
+    //      if(formError) return;
 
-        insertDocument({
-            name,
-            email,
-            uid: user.uid,
-            createdBy: user.displayName
-        })
+    //      insertDocument({
+    //          name,
+    //         email,
+    //         uid: user.uid,
+    //          createdBy: user.displayName
+    //     })
 
-        // Redirect to home
-        navigate("/");
-    };
+    //     Redirect to home
+    //     navigate("/");
+    // };
     
     return (
         <div className="create_contact">
             <h2>Cadastrar Contatos</h2>
             <p>Cadastre seus contatos para que não esqueça de chamar ninguém para as suas festas!</p>
-            <form onSubmit={handleSubmit}>
+            {/* <form onSubmit={handleSubmit}>
                 <label>
                     <span>Nome:</span>
                     <input type="text"
@@ -65,9 +67,12 @@ const CreateContact = () => {
                 {(response.error || formError) && (
                     <p className="error">{response.error || formError}</p>
                 )}
-            </form>
+            </form> */}
+            <Link to={"/contacts/create"}>
+                <button className="btn">Cadastrar</button>
+            </Link>
         </div>
     );
 };
 
-export default CreateContact;
+export default Contact;
