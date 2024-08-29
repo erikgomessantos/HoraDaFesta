@@ -21,6 +21,8 @@ import Contacts from "./pages/Contacts/Contacts";
 import CreateContact from "./pages/CreateContact/CreateContact";
 import Attractions from './pages/Attractions/Attractions';
 import CreateAttractions from './pages/CreateAttractions/CreateAttractions';
+import Tasks from './pages/Tasks/Tasks';
+import CreateTasks from './pages/CreateTasks/CreateTasks';
 
 // Components
 import Navbar from "./components/Navbar";
@@ -62,6 +64,8 @@ function App() {
               <Route path="/contacts/create" element={user ? <CreateContact /> : <Navigate to="/login"/>} />
               <Route path="/attractions" element={user ? <Attractions /> : <Navigate to="/login"/>} />
               <Route path="/attractions/create" element={user ? <CreateAttractions /> : <Navigate to="/login"/>} />
+              <Route path="/tasks" element={user ? <Tasks /> : <Navigate to="/login"/>} />
+              <Route path="/tasks/create" element={user ? <CreateTasks /> : <Navigate to="/login"/>} />
             </Routes>
           </div>
           <Footer />
