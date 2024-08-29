@@ -25,6 +25,8 @@ import Tasks from './pages/Tasks/Tasks';
 import CreateTasks from './pages/CreateTasks/CreateTasks';
 import Places from './pages/Places/Places';
 import CreatePlaces from './pages/CreatePlaces/CreatePlaces';
+import Suppliers from './pages/Suppliers/Suppliers';
+import CreateSuppliers from './pages/CreateSuppliers/CreateSuppliers';
 
 // Components
 import Navbar from "./components/Navbar";
@@ -70,6 +72,8 @@ function App() {
               <Route path="/tasks/create" element={user ? <CreateTasks /> : <Navigate to="/login"/>} />
               <Route path="/places" element={user ? <Places /> : <Navigate to="/login"/>} />
               <Route path="/places/create" element={user ? <CreatePlaces /> : <Navigate to="/login"/>} />
+              <Route path="/suppliers" element={user ? <Suppliers /> : <Navigate to="/login"/>} />
+              <Route path="/suppliers/create" element={user ? <CreateSuppliers /> : <Navigate to="/login"/>} />
             </Routes>
           </div>
           <Footer />
