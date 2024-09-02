@@ -47,7 +47,7 @@ const CreateParty = () => {
             <p>Crie suas festas da forma que preferir!</p>
             <form onSubmit={handleSubmit}>
                 <label>
-                    <span>Título:</span>
+                    <span>Título:*</span>
                     <input type="text"
                         name="title"
                         placeholder="Título da sua Festa"
@@ -57,7 +57,7 @@ const CreateParty = () => {
                     />
                 </label>
                 <label>
-                    <span>URL da Imagem:</span>
+                    <span>URL da Imagem:*</span>
                     <input type="text"
                         name="image"
                         placeholder="Insira o endereço da imagem que tem a sua festa"

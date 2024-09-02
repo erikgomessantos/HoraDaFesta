@@ -6,7 +6,7 @@ import { UserInsert } from "../../hooks/UserInsert";
 
 const CreateAttraction = () => {
     const [name, setName] = useState("");
-    const [image, setImage] = useState("");
+    const [description, setDescription] = useState("");
     const [formError, setFormError] = useState("");
     
     const {user} = useAuthValue();
@@ -17,22 +17,12 @@ const CreateAttraction = () => {
          e.preventDefault();
          setFormError("");
 
-        // URL Validation
-        try {
-
-            new URL(image)
-
-        } catch (error) {
-            
-            setFormError("A imagem precisa ser uma URL.")
-        };
-
         // Verificar todos os valores
           if(formError) return;
 
         insertDocument({
         name,
-        image,
+        description,
         uid: user.uid,
         createdBy: user.displayName
    });
@@ -56,12 +46,12 @@ const CreateAttraction = () => {
                     />
                 </label>
                 <label>
-                    <span>URL da Imagem:</span>
+                    <span>Descrição:</span>
                     <input type="text"
-                        name="image"
-                        placeholder="Insira o endereço da imagem que tem a sua atração"
-                        onChange={(e) => setImage(e.target.value)}
-                        value={image}  
+                        name="description"
+                        placeholder="Descreva sua atração da forma que desejar"
+                        onChange={(e) => setDescription(e.target.value)}
+                        value={description}  
                     />
                 </label>
                 {!response.loading && <button className="btn">Criar</button>}
