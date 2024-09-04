@@ -4,27 +4,15 @@ import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import { UserInsert } from "../../hooks/UserInsert";
 
-//03-09-2024
-import { UserFetchParties } from "../../hooks/UserFetchParties";
-//03-09-2024
-
 const CreateParty = () => {
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
     const [formError, setFormError] = useState("");
     
     const {user} = useAuthValue();
-    
-    //03-09-2024
-    const uid = user.uid;
-    //03-09-2024
 
     const {insertDocument, response} = UserInsert("parties");
     const navigate = useNavigate();
-
-    //03-09-2024
-    const {documents: contacts} = UserFetchParties("contacts", null, uid);
-    //03-09-2024
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -79,21 +67,6 @@ const CreateParty = () => {
                         value={image}  
                     />
                 </label>
-
-                
-                {/* //03-09-2024 */}
-                <label>
-                <select>
-                    <option>
-                    {contacts && contacts.map((contacts) => <p key={contacts.id} contacts={contacts}>
-                    <span>Nome:{contacts.name}</span>
-                </p>)}
-                    </option>
-                
-                </select>
-                </label>
-                {/* //03-09-2024 */}
-
                 {!response.loading && <button className="btn">Criar Festa</button>}
                 {response.loading && (
                     <button className="btn" disabled>
