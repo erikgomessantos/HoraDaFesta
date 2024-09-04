@@ -45,6 +45,9 @@ const Dashboard = () => {
                         <Link to={`/parties/edit/${party.id}`} className="btn btn-outline">
                             Editar
                         </Link>
+                        <Link to={`/parties/edit/${party.id}`} className="btn btn-outline">
+                            Adicionar
+                        </Link>
                         <button onClick={() => deleteDocument(party.id)} className="btn btn-outline btn-danger">
                             Excluir
                         </button>

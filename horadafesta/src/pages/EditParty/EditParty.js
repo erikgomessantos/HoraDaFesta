@@ -5,12 +5,26 @@ import { useAuthValue } from "../../context/AuthContext";
 import { UserUpdateParty } from "../../hooks/UserUpdateParty";
 import { UserFetchParty } from "../../hooks/UserFetchParty";
 
+// 04-09-2024
+// import { contacts } from "../Contacts/Contacts";
+// 04-09-2024
+
+
 const EditParty = () => {
     const {id} = useParams();
     const {document: party} = UserFetchParty("parties", id);
 
+    //04-09-2024
+    // const {document: contacts} = UserFetchParty("contacts", id);
+    //04-09-2024
+
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
+    
+    //04-09-2024
+    const [name, setName] = useState("");
+    //04-09-2024
+
     const [formError, setFormError] = useState("");
 
     useEffect(() => {
@@ -18,6 +32,10 @@ const EditParty = () => {
 
             setTitle(party.title)
             setImage(party.image)
+            
+            //04-09-2024
+            setName(party.name)
+            //04-09-2024
         }
     }, [party])
     
@@ -45,6 +63,7 @@ const EditParty = () => {
         const data = {
             title,
             image,
+            name,
             uid: user.uid,
             createdBy: user.displayName
         };
@@ -88,6 +107,19 @@ const EditParty = () => {
                          src={party.image}
                          alt={party.title}
                         />
+                        
+                        {/* 04-09-2024 */}
+                        <label>
+                            <span>Nome do Contato:</span>
+                            <input type="text"
+                                name="name"
+                                placeholder="Informe o nome do seu contato"
+                                onChange={(e) => setName(e.target.value)}
+                                value={name}  
+                            />
+                        </label>
+                        {/* 04-09-2024 */}
+
                         {!response.loading && <button className="btn">Editar</button>}
                         {response.loading && (
                             <button className="btn" disabled>

@@ -13,14 +13,18 @@ const Contact = () => {
     return (
         <div className="create_contact">
             <h2>Contatos</h2>
+            <p>Cadastre seus contatos para que não esqueça de chamar ninguém para as suas festas!</p>
+            <Link to={"/contacts/create"}>
+                <button className="btn">Cadastrar</button>
+            </Link>
             {loading && <p>Carregando...</p>}
             {contacts && contacts.map((contacts) => <p key={contacts.id} contacts={contacts}>
                 <span>Nome:{contacts.name}</span>
                 <span>Apelido:{contacts.nickname}</span>
                 <span>E-mail:{contacts.email}</span>
                 <span>Telefone:{contacts.telephone}</span>
-                <Link to={"/contacts/create"}>
-                    <button className="btn">Cadastrar</button>
+                <Link to={"/dashboard"}>
+                    <button className="btn">Adicionar à Festa</button>
                 </Link>
             </p>)}
             {contacts && contacts.length === 0 && (
@@ -30,7 +34,7 @@ const Contact = () => {
                 </div>
             )}
             {/* 
-            <p>Cadastre seus contatos para que não esqueça de chamar ninguém para as suas festas!</p>
+            
             <Link to={"/contacts/create"}>
                 <button className="btn">Cadastrar</button>
             </Link> */}
