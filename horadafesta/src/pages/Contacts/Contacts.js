@@ -17,14 +17,30 @@ const Contact = () => {
             <Link to={"/contacts/create"}>
                 <button className="btn">Cadastrar</button>
             </Link>
+
+           
             {loading && <p>Carregando...</p>}
-            {contacts && contacts.map((contacts) => <p key={contacts.id} contacts={contacts}>
-                <span>Nome:{contacts.name}</span>
-                <span>Apelido:{contacts.nickname}</span>
-                <span>E-mail:{contacts.email}</span>
-                <span>Telefone:{contacts.telephone}</span>
-                <Link to={"/dashboard"}>
-                    <button className="btn">Adicionar à Festa</button>
+
+            <div>
+                <span>Nome</span>
+                <span>Apelido</span>
+                <span>E-mail</span>
+                <span>Telefone</span>
+                <span>Ações</span>
+            </div>
+            {contacts && contacts.map((contacts) => <p key={contacts.id} contacts={contacts} className="party_row">
+                <span>{contacts.name}</span>
+                <span>{contacts.nickname}</span>
+                <span>{contacts.email}</span>
+                <span>{contacts.telephone}</span>
+                <Link to={"/dashboard"} className="btn btn-outline">
+                    Adicionar à Festa
+                </Link>
+                <Link to={"/"} className="btn btn-outline">
+                    Editar
+                </Link>
+                <Link to={"/"} className="btn btn-outline">
+                    Excluir
                 </Link>
             </p>)}
             {contacts && contacts.length === 0 && (
