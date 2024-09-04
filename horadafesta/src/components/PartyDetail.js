@@ -7,6 +7,10 @@ const PartyDetail = ({ party }) => {
             <img src={party.image} alt={party.title}/>
             <h2>Nome da festa:{party.title}</h2>
             <p>Lista de Contatos:{party.name}</p>
+            <p>Atrações:{party.attractionsName}</p>
+            <p>Tarefas/Lembretes: {party.tasksDescription}</p>
+            <p>Local: {party.places}</p>
+            <p>Fornecedores: {party.suppliers}</p>
             <p className="createdby">Festa criada por:{party.createdBy}</p>
             <Link to={`/party/${party.id}`} className="btn btn-outline">
                 Ver            

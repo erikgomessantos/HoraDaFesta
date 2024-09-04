@@ -5,24 +5,19 @@ import { useAuthValue } from "../../context/AuthContext";
 import { UserUpdateParty } from "../../hooks/UserUpdateParty";
 import { UserFetchParty } from "../../hooks/UserFetchParty";
 
-// 04-09-2024
-// import { contacts } from "../Contacts/Contacts";
-// 04-09-2024
-
-
 const EditParty = () => {
     const {id} = useParams();
     const {document: party} = UserFetchParty("parties", id);
-
-    //04-09-2024
-    // const {document: contacts} = UserFetchParty("contacts", id);
-    //04-09-2024
 
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
     
     //04-09-2024
     const [name, setName] = useState("");
+    const [attractionsName, setAttractionsName] = useState("");
+    const [tasksDescription, setTasksDescription] = useState("");
+    const [places, setPlaces] = useState("");
+    const [suppliers, setSuppliers] = useState("");
     //04-09-2024
 
     const [formError, setFormError] = useState("");
@@ -35,6 +30,10 @@ const EditParty = () => {
             
             //04-09-2024
             setName(party.name)
+            setAttractionsName(party.attractionsName)
+            setTasksDescription(party.tasksDescription)
+            setPlaces(party.places)
+            setSuppliers(party.suppliers)
             //04-09-2024
         }
     }, [party])
@@ -63,7 +62,15 @@ const EditParty = () => {
         const data = {
             title,
             image,
+            
+            // 04-09-2024
             name,
+            attractionsName,
+            tasksDescription,
+            places,
+            suppliers,
+            // 04-09-2024
+
             uid: user.uid,
             createdBy: user.displayName
         };
@@ -82,7 +89,7 @@ const EditParty = () => {
                     <p>Altere as informações das suas festas da forma que preferir!</p>
                     <form onSubmit={handleSubmit}>
                         <label>
-                            <span>Título:</span>
+                            <span>Título:*</span>
                             <input type="text"
                                 name="title"
                                 placeholder="Título da sua Festa"
@@ -92,7 +99,7 @@ const EditParty = () => {
                             />
                         </label>
                         <label>
-                            <span>URL da Imagem:</span>
+                            <span>URL da Imagem:*</span>
                             <input type="text"
                                 name="image"
                                 placeholder="Insira o endereço da imagem que tem a sua festa"
@@ -116,6 +123,46 @@ const EditParty = () => {
                                 placeholder="Informe o nome do seu contato"
                                 onChange={(e) => setName(e.target.value)}
                                 value={name}  
+                            />
+                        </label>
+
+                        <label>
+                            <span>Atrações:</span>
+                            <input type="text"
+                                name="attractionsName"
+                                placeholder="Descreva suas atrações"
+                                onChange={(e) => setAttractionsName(e.target.value)}
+                                value={attractionsName}  
+                            />
+                        </label>
+
+                        <label>
+                            <span>Tarefas:</span>
+                            <input type="text"
+                                name="tasksDescription"
+                                placeholder="Descreva suas tarefas para que não esqueça de nada"
+                                onChange={(e) => setTasksDescription(e.target.value)}
+                                value={tasksDescription}  
+                            />
+                        </label>
+
+                        <label>
+                            <span>Locais:</span>
+                            <input type="text"
+                                name="places"
+                                placeholder="Cadastre seus lugares favoritos para comemorar suas festas"
+                                onChange={(e) => setPlaces(e.target.value)}
+                                value={places}  
+                            />
+                        </label>
+
+                        <label>
+                            <span>Fornecedores:</span>
+                            <input type="text"
+                                name="suppliers"
+                                placeholder="Cadastre seus fornecedores"
+                                onChange={(e) => setSuppliers(e.target.value)}
+                                value={suppliers}  
                             />
                         </label>
                         {/* 04-09-2024 */}

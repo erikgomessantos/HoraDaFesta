@@ -14,14 +14,18 @@ const Tasks = () => {
     return (
         <div className="create_contact">
             <h2>Tarefas</h2>
-
+            <p>Crie suas tarefas para que não se esqueça de nada!</p>
+            <Link to={"/tasks/create"}>
+                <button className="btn">Criar</button>
+            </Link>
+            
             {loading && <p>Carregando...</p>}
 
             {tasks && tasks.map((tasks) => <p key={tasks.id} tasks={tasks}>
                 <span>Nome:{tasks.description}</span>
                 <span>Data:{tasks.date}</span>
-                <Link to={"/tasks/create"}>
-                    <button className="btn">Criar</button>
+                <Link to={"/dashboard"}>
+                    <button className="btn">Adicionar à Festa</button>
                 </Link>
             </p>)}
 
@@ -32,7 +36,7 @@ const Tasks = () => {
                 </div>
             )}
 
-            {/* <p>Crie suas tarefas para que não se esqueça de nada!</p>
+            {/* 
             <Link to={"/tasks/create"}>
                 <button className="btn">Criar</button>
             </Link> */}

@@ -14,6 +14,10 @@ const Suppliers = () => {
     return (
         <div className="create_contact">
             <h2>Fornecedores</h2>
+            <p>Cadastre seus Fornecedores preferidos!</p>
+            <Link to={"/suppliers/create"}>
+                <button className="btn">Cadastrar</button>
+            </Link>
 
             {loading && <p>Carregando...</p>}
 
@@ -22,8 +26,8 @@ const Suppliers = () => {
                 <span>CPF ou CNPJ:{suppliers.cnpjorcpf}</span>
                 <span>Contato:{suppliers.contact}</span>
                 <span>Serviço:{suppliers.service}</span>
-                <Link to={"/suppliers/create"}>
-                    <button className="btn">Cadastrar</button>
+                <Link to={"/dashboard"}>
+                    <button className="btn">Adicionar à Festa</button>
                 </Link>
             </p>)}
 
@@ -34,7 +38,7 @@ const Suppliers = () => {
                 </div>
             )}
 
-            {/* <p>Cadastre seus Fornecedores preferidos!</p>
+            {/* 
             <Link to={"/suppliers/create"}>
                 <button className="btn">Cadastrar</button>
             </Link> */}

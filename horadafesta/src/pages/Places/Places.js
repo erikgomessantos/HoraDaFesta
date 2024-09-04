@@ -14,6 +14,10 @@ const Places = () => {
     return (
         <div className="create_contact">
             <h2>Locais</h2>
+            <p>Cadastre os locais preferidos para realizar sua festa!</p>
+            <Link to={"/places/create"}>
+                <button className="btn">Cadastrar</button>
+            </Link>
 
             {loading && <p>Carregando...</p>}
 
@@ -22,8 +26,8 @@ const Places = () => {
                 <span>Endereço:{places.address}</span>
                 <span>Bairro:{places.neighbor}</span>
                 <span>Número:{places.number}</span>
-                <Link to={"/places/create"}>
-                    <button className="btn">Cadastrar</button>
+                <Link to={"/dashboard"}>
+                    <button className="btn">Adicionar à Festa</button>
                 </Link>
             </p>)}
 
@@ -34,7 +38,7 @@ const Places = () => {
                 </div>
             )}
 
-            {/* <p>Cadastre os locais preferidos para realizar sua festa!</p>
+            {/* 
             <Link to={"/places/create"}>
                 <button className="btn">Cadastrar</button>
             </Link> */}

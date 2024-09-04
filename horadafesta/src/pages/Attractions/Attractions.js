@@ -14,12 +14,16 @@ const Attractions = () => {
     return (
         <div className="create_contact">
             <h2>Atrações</h2>
+            <p>Crie suas Atrações para que suas festas sejam inesquecíveis!</p>
+            <Link to={"/attractions/create"}>
+                <button className="btn">Criar</button>
+            </Link>
             {loading && <p>Carregando...</p>}
             {attractions && attractions.map((attractions) => <p key={attractions.id} attractions={attractions}>
                 <span>Nome:{attractions.name}</span>
                 <span>Descrição:{attractions.description}</span>
-                <Link to={"/attractions/create"}>
-                    <button className="btn">Criar</button>
+                <Link to={"/dashboard"}>
+                    <button className="btn">Adicionar à Festa</button>
                 </Link>
             </p>)}
             {attractions && attractions.length === 0 && (
@@ -29,7 +33,7 @@ const Attractions = () => {
                 </div>
             )}
 
-            {/* <p>Crie suas Atrações para que suas festas sejam inesquecíveis!</p>
+            {/* 
             <Link to={"/attractions/create"}>
                 <button className="btn">Criar</button>
             </Link> */}

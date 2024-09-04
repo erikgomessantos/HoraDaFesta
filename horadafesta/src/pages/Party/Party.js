@@ -16,6 +16,10 @@ const Party = () => {
                     <h1>Nome da festa: {party.title}</h1>
                     <img src={party.image}  alt={party.title}/>
                     <p>Lista de Contatos:{party.name}</p>
+                    <p>Atrações:{party.attractionsName}</p>
+                    <p>Tarefas/Lembretes: {party.tasksDescription}</p>
+                    <p>Local: {party.places}</p>
+                    <p>Fornecedores: {party.suppliers}</p>
                     <p className="createdby">Festa criada por:{party.createdBy}</p>
                 </>
             )}
