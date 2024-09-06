@@ -5,9 +5,18 @@ import { useAuthValue } from "../../context/AuthContext";
 import { UserUpdateParty } from "../../hooks/UserUpdateParty";
 import { UserFetchParty } from "../../hooks/UserFetchParty";
 
+// 05-09-2024
+import { UserFetchParties } from "../../hooks/UserFetchParties";
+// 05-09-2024
+
+
 const EditParty = () => {
     const {id} = useParams();
     const {document: party} = UserFetchParty("parties", id);
+
+    // 05-09-2024
+    const {documents: contacts} = UserFetchParties("contacts", null);
+    // 05-09-2024
 
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
@@ -80,6 +89,10 @@ const EditParty = () => {
         // Redirect to home
         navigate("/dashboard");
     };
+
+    // 05-09-2024
+    // const [options] = useState([""]);
+    // 05-09-2024
     
     return (
         <div className="edit_party">
@@ -116,7 +129,7 @@ const EditParty = () => {
                         />
                         
                         {/* 04-09-2024 */}
-                        <label>
+                        {/* <label>
                             <span>Nome do Contato:</span>
                             <input type="text"
                                 name="name"
@@ -124,7 +137,28 @@ const EditParty = () => {
                                 onChange={(e) => setName(e.target.value)}
                                 value={name}  
                             />
-                        </label>
+                        </label> */}
+
+                        {/* 05-09-2024 */}
+                        {/* {contacts && contacts.map((contacts) => <p key={contacts.id} contacts={contacts}>
+                        <select>
+                            <option>Selecione os Contatos</option>
+                                {options.map(option => (
+                                <option key={contacts.id} value={contacts.name}>
+                                    {contacts.name}
+                                </option>
+                            ))}
+                        </select>
+                        </p>)}     */}
+                        <select>
+                            <option>Selecione os Contatos</option>
+                            {contacts.map((contacts) => {
+                                return <option>{contacts.name}</option>
+                            })}
+                        </select>
+
+                        
+                        {/* 05-09-2024 */}
 
                         <label>
                             <span>Atrações:</span>
