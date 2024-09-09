@@ -150,7 +150,10 @@ const EditParty = () => {
                             ))}
                         </select>
                         </p>)}     */}
-                        <select>
+                        <select 
+                        onChange={(e) => setName(e.target.value)}
+                        value={name}
+                        >
                             <option>Selecione os Contatos</option>
                             {contacts.map((contacts) => {
                                 return <option>{contacts.name}</option>
