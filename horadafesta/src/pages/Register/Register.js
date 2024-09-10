@@ -2,12 +2,16 @@ import { UserAuthentication } from "../../hooks/userAuthentication";
 import "../Register/Register.css";
 import { useState, useEffect } from "react";
 
+import { UserInsert } from "../../hooks/UserInsert";
+
 const Register = () => {
     const [displayName, setDisplayName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
+
+    const {insertDocument} = UserInsert("users");
 
     const { createUser, error: authError } = UserAuthentication();
 
@@ -28,6 +32,12 @@ const Register = () => {
         }
 
         const res = await createUser(user)
+
+        insertDocument({
+            displayName,
+            email,
+            password,
+        })
 
         console.log(res);
     };
