@@ -6,7 +6,7 @@ import { UserUpdateParty } from "../../hooks/UserUpdateParty";
 import { UserFetchParty } from "../../hooks/UserFetchParty";
 
 // 05-09-2024
-// import { UserFetchParties } from "../../hooks/UserFetchParties";
+import { UserFetchParties } from "../../hooks/UserFetchParties";
 // 05-09-2024
 
 
@@ -15,7 +15,7 @@ const EditParty = () => {
     const {document: party} = UserFetchParty("parties", id);
 
     // 05-09-2024
-    // const {documents: contacts} = UserFetchParties("contacts", null);
+    const {documents: contacts} = UserFetchParties("contacts", null);
     // 05-09-2024
 
     const [title, setTitle] = useState("");
@@ -151,7 +151,7 @@ const EditParty = () => {
                         </select>
                         </p>)}     */}
                         
-                        {/* <select 
+                        <select 
                         name="name"
                         multiple={false}
                         onChange={(e) => setName(e.target.value)}
@@ -161,7 +161,7 @@ const EditParty = () => {
                             {contacts.map((contacts, i) => {
                                 return <option key={i}>{contacts.name}</option>
                             })}
-                        </select> */}
+                        </select>
 
                         
                         {/* 05-09-2024 */}
