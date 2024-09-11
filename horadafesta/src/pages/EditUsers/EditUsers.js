@@ -1,17 +1,56 @@
 import "../Contacts/Contacts.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useAuthValue } from "../../context/AuthContext";
+import { UserUpdateParty } from "../../hooks/UserUpdateParty";
+import { UserFetchParty } from "../../hooks/UserFetchParty";
+
 
 const EditUsers = () => {
+
+    const {id} = useParams();
+    const {document: users} = UserFetchParty("users", id);
 
     const [displayName, setDisplayName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [error] = useState("");
+    // const [error] = useState("");
+    const [formError, setFormError] = useState("");
+
+    // Carrega os dados já preenchidos ao formulário
+    useEffect(() => {
+        if(users) {
+            setDisplayName(users.displayName)
+            setEmail(users.email)
+            setPassword(users.password)
+            setConfirmPassword(users.confirmPassword)
+        }
+    }, [users])
+
+    const {user} = useAuthValue();
+    const {updateDocument, response} = UserUpdateParty("users");
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setFormError("");
+
+        if(formError) return;
+
+        const data = {
+            displayName,
+            email,
+            password,
+            confirmPassword,
+            uid: user.uid,
+            createdBy: user.displayName
+        };
+
+        updateDocument(id, data);
+
+        navigate("/users");
     }    
 
     return (
@@ -41,29 +80,34 @@ const EditUsers = () => {
                     />
                 </label>
                 <label>
-                    <span>Senha:*</span>
+                    <span>Senha:</span>
                     <input
                      type="password"
                      name="password"
-                     required
                      placeholder="Insira sua senha"
                      value={password}
                      onChange={(e) => setPassword(e.target.value)}
                     />
                 </label>
                 <label>
-                    <span>Confirmação de Senha:*</span>
+                    <span>Confirmação de Senha:</span>
                     <input
                      type="password"
                      name="confirmPassword"
-                     required
                      placeholder="Confirme sua senha"
                      value={confirmPassword}
                      onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </label>
-                <button className="btn">Editar</button>
-                {error && <p className="error">{error}</p>}
+                {!response.loading && <button className="btn">Editar</button>}
+                        {response.loading && (
+                            <button className="btn" disabled>
+                                Aguarde.. .
+                            </button>
+                        )}
+                        {(response.error || formError) && (
+                            <p className="error">{response.error || formError}</p>
+                        )}
             </form>
         </div>
     )
