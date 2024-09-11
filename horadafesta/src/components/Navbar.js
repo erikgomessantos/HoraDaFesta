@@ -53,6 +53,9 @@ const Navbar = () => {
                         <NavLink to="/dashboard">Dashboard</NavLink>
                     </li>
                     <li>
+                        <NavLink to="/users">Usuários</NavLink>
+                    </li>
+                    <li>
                         <button onClick={logout}>Sair</button>
                     </li>
                 </>

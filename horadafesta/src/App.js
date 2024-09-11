@@ -29,6 +29,10 @@ import CreatePlaces from './pages/CreatePlaces/CreatePlaces';
 import Suppliers from './pages/Suppliers/Suppliers';
 import CreateSuppliers from './pages/CreateSuppliers/CreateSuppliers';
 
+// 11-09-2024
+import Users from "./pages/Users/Users";
+// 11-09-2024
+
 // Components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -76,6 +80,7 @@ function App() {
               <Route path="/places/create" element={user ? <CreatePlaces /> : <Navigate to="/login"/>} />
               <Route path="/suppliers" element={user ? <Suppliers /> : <Navigate to="/login"/>} />
               <Route path="/suppliers/create" element={user ? <CreateSuppliers /> : <Navigate to="/login"/>} />
+              <Route path="/users" element={user ? <Users /> : <Navigate to="/login"/>} />
             </Routes>
           </div>
           <Footer />
