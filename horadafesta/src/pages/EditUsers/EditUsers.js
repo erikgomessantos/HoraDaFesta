@@ -16,7 +16,7 @@ const EditUsers = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    // const [error] = useState("");
+    const [setError] = useState("");
     const [formError, setFormError] = useState("");
 
     // Carrega os dados já preenchidos ao formulário
@@ -47,6 +47,11 @@ const EditUsers = () => {
             uid: user.uid,
             createdBy: user.displayName
         };
+
+        if(password !== confirmPassword) {
+            setError("As senhas precisam ser iguais!")
+            return;
+        }
 
         updateDocument(id, data);
 
@@ -80,20 +85,22 @@ const EditUsers = () => {
                     />
                 </label>
                 <label>
-                    <span>Senha:</span>
+                    <span>Senha:*</span>
                     <input
                      type="password"
                      name="password"
+                     required
                      placeholder="Insira sua senha"
                      value={password}
                      onChange={(e) => setPassword(e.target.value)}
                     />
                 </label>
                 <label>
-                    <span>Confirmação de Senha:</span>
+                    <span>Confirmação de Senha:*</span>
                     <input
                      type="password"
                      name="confirmPassword"
+                     required
                      placeholder="Confirme sua senha"
                      value={confirmPassword}
                      onChange={(e) => setConfirmPassword(e.target.value)}

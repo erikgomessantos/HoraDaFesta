@@ -43,9 +43,6 @@ const Users = () => {
             {users && users.map((users) => <div key={users.id} users={users} className="party_row">
                 <p>{users.displayName}</p>
                 <div>
-                    <Link to={`/users/${users.id}`} className="btn btn-outline">
-                        Ver
-                    </Link>
                     <Link to={`/users/edit/${users.id}`} className="btn btn-outline">
                         Editar
                     </Link>
