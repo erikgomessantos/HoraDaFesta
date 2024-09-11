@@ -31,7 +31,7 @@ const EditContact = () => {
     }, [contacts])
 
     const {user} = useAuthValue();
-    const {updateDocument, response} = UserUpdateParty("contatcs");
+    const {updateDocument, response} = UserUpdateParty("contacts");
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
