@@ -31,6 +31,7 @@ import CreateSuppliers from './pages/CreateSuppliers/CreateSuppliers';
 
 // 11-09-2024
 import Users from "./pages/Users/Users";
+import EditUsers from './pages/EditUsers/EditUsers';
 // 11-09-2024
 
 // Components
@@ -81,6 +82,7 @@ function App() {
               <Route path="/suppliers" element={user ? <Suppliers /> : <Navigate to="/login"/>} />
               <Route path="/suppliers/create" element={user ? <CreateSuppliers /> : <Navigate to="/login"/>} />
               <Route path="/users" element={user ? <Users /> : <Navigate to="/login"/>} />
+              <Route path="/users/edit/:id" element={user ? <EditUsers /> : <Navigate to="/login"/>} />
             </Routes>
           </div>
           <Footer />
