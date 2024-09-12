@@ -7,6 +7,10 @@ import { UserInsert } from "../../hooks/UserInsert";
 const CreateParty = () => {
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
+    const [attractionsName, setAttractionsName] = useState("");
+    const [tasksDescription, setTasksDescription] = useState("");
+    const [places, setPlaces] = useState("");
+    const [suppliers, setSuppliers] = useState("");
     const [formError, setFormError] = useState("");
     
     const {user} = useAuthValue();
@@ -34,6 +38,10 @@ const CreateParty = () => {
         insertDocument({
             title,
             image,
+            attractionsName,
+            tasksDescription,
+            places,
+            suppliers,
             uid: user.uid,
             createdBy: user.displayName
         })
@@ -65,6 +73,42 @@ const CreateParty = () => {
                         required 
                         onChange={(e) => setImage(e.target.value)}
                         value={image}  
+                    />
+                </label>
+                <label>
+                    <span>Atrações:</span>
+                    <input type="text"
+                        name="attractionsName"
+                        placeholder="Descreva suas atrações"
+                        onChange={(e) => setAttractionsName(e.target.value)}
+                        value={attractionsName}  
+                    />
+                </label>
+                <label>
+                    <span>Tarefas:</span>
+                    <input type="text"
+                        name="tasksDescription"
+                        placeholder="Descreva suas tarefas para que não esqueça de nada"
+                        onChange={(e) => setTasksDescription(e.target.value)}
+                        value={tasksDescription}  
+                    />
+                </label>
+                <label>
+                    <span>Locais:</span>
+                    <input type="text"
+                        name="places"
+                        placeholder="Cadastre seus lugares favoritos para comemorar suas festas"
+                        onChange={(e) => setPlaces(e.target.value)}
+                        value={places}  
+                    />
+                </label>
+                <label>
+                    <span>Fornecedores:</span>
+                    <input type="text"
+                        name="suppliers"
+                        placeholder="Cadastre seus fornecedores"
+                        onChange={(e) => setSuppliers(e.target.value)}
+                        value={suppliers}  
                     />
                 </label>
                 {!response.loading && <button className="btn">Criar Festa</button>}
