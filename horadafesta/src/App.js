@@ -17,17 +17,26 @@ import CreateParty from './pages/CreateParty/CreateParty';
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Party from "./pages/Party/Party";
 import EditParty from './pages/EditParty/EditParty';
+
 import Contacts from "./pages/Contacts/Contacts";
 import CreateContact from "./pages/CreateContact/CreateContact";
 import EditContacts from "./pages/EditContacts/EditContacts";
+
 import Attractions from './pages/Attractions/Attractions';
+import EditAttractions from './pages/EditAttractions/EditAttractions';
 import CreateAttractions from './pages/CreateAttractions/CreateAttractions';
+
 import Tasks from './pages/Tasks/Tasks';
 import CreateTasks from './pages/CreateTasks/CreateTasks';
+import EditTasks from "./pages/EditTasks/EditTasks";
+
 import Places from './pages/Places/Places';
 import CreatePlaces from './pages/CreatePlaces/CreatePlaces';
+import EditPlaces from "./pages/EditPlaces/EditPlaces";
+
 import Suppliers from './pages/Suppliers/Suppliers';
 import CreateSuppliers from './pages/CreateSuppliers/CreateSuppliers';
+import EditSuppliers from './pages/EditSuppliers/EditSuppliers';
 
 // 11-09-2024
 import Users from "./pages/Users/Users";
@@ -70,17 +79,27 @@ function App() {
               <Route path="/party/:id" element={user ? <Party /> : <Navigate to="/login"/>} />
               <Route path="/parties/edit/:id" element={user ? <EditParty /> : <Navigate to="/login"/>} />
               <Route path="/dashboard" element={user ? <Dashboard /> : <Navigate to="/login"/>} />
+              
               <Route path="/contacts" element={user ? <Contacts /> : <Navigate to="/login"/>} />
               <Route path="/contacts/create" element={user ? <CreateContact /> : <Navigate to="/login"/>} />
               <Route path="/contacts/edit/:id" element={user ? <EditContacts /> : <Navigate to="/login"/>} />
+              
               <Route path="/attractions" element={user ? <Attractions /> : <Navigate to="/login"/>} />
               <Route path="/attractions/create" element={user ? <CreateAttractions /> : <Navigate to="/login"/>} />
+              <Route path="/attractions/edit/:id" element={user ? <EditAttractions /> : <Navigate to="/login"/>} />
+              
               <Route path="/tasks" element={user ? <Tasks /> : <Navigate to="/login"/>} />
               <Route path="/tasks/create" element={user ? <CreateTasks /> : <Navigate to="/login"/>} />
+              <Route path="/tasks/edit/:id" element={user ? <EditTasks /> : <Navigate to="/login"/>} />
+              
               <Route path="/places" element={user ? <Places /> : <Navigate to="/login"/>} />
               <Route path="/places/create" element={user ? <CreatePlaces /> : <Navigate to="/login"/>} />
+              <Route path="/places/edit/:id" element={user ? <EditPlaces /> : <Navigate to="/login"/>} />
+              
               <Route path="/suppliers" element={user ? <Suppliers /> : <Navigate to="/login"/>} />
               <Route path="/suppliers/create" element={user ? <CreateSuppliers /> : <Navigate to="/login"/>} />
+              <Route path="/suppliers/edit/:id" element={user ? <EditSuppliers /> : <Navigate to="/login"/>} />
+              
               <Route path="/users" element={user ? <Users /> : <Navigate to="/login"/>} />
               <Route path="/users/edit/:id" element={user ? <EditUsers /> : <Navigate to="/login"/>} />
             </Routes>

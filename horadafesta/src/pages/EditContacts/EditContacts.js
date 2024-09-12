@@ -60,7 +60,7 @@ const EditContact = () => {
         <div className="create_contact">
             {contacts && (
                 <>
-                <h2>Cadastrar Contatos</h2>
+                <h2>Editar Contato</h2>
             {<form onSubmit={handleSubmit}>
                     <label>
                         <span>Nome:*</span>
