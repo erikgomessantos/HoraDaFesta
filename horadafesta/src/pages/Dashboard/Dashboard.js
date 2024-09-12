@@ -7,6 +7,8 @@ import { useAuthValue } from "../../context/AuthContext";
 import { UserFetchParties } from "../../hooks/UserFetchParties";
 import { UserDeleteParty } from "../../hooks/UserDeleteParty";
 
+import { ExportCSV } from "../../components/ExportCSV";
+
 const Dashboard = () => {
     const {user} = useAuthValue();
     const uid = user.uid;
@@ -19,6 +21,13 @@ const Dashboard = () => {
     if(loading) {
         return <p>Carregando</p>
     }
+
+    // const fileName = "";
+    const viewers = [
+
+        {Título:1,Contatos:2,Atrações:3,Tarefas:4,Locais:5, Fornecedores:6}
+    
+      ]
 
     return (
         <div className="dashboard">
@@ -48,6 +57,7 @@ const Dashboard = () => {
                         <Link to={`/parties/edit/${party.id}`} className="btn btn-outline">
                             Adicionar
                         </Link>
+                        <ExportCSV csvData={viewers} fileName={party.title} />
                         <button onClick={() => deleteDocument(party.id)} className="btn btn-outline btn-danger">
                             Excluir
                         </button>
