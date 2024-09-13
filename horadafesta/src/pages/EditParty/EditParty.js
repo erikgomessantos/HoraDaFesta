@@ -155,7 +155,7 @@ const EditParty = () => {
                         name="name"
                         multiple={false}
                         onChange={(e) => setName(e.target.value)}
-                        // value={[name]}
+                        value={[name]}
                         >
                             <option>Selecione os Contatos</option>
                             {contacts.map((contacts, i) => {
