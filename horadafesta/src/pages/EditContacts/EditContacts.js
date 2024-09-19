@@ -1,4 +1,4 @@
-import "../Contacts/Contacts.css";
+import "../../App.css";
 
 // 09-09-2024
 import { useState, useEffect } from "react";
@@ -52,12 +52,12 @@ const EditContact = () => {
         
        updateDocument(id, data);
 
-        // Redirect to home
+        // Redireciona para a home
         navigate("/contacts");
     };
 
     return (
-        <div className="create_contact">
+        <div className="create_forms">
             {contacts && (
                 <>
                 <h2>Editar Contato</h2>

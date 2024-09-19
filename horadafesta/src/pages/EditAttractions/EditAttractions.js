@@ -1,4 +1,4 @@
-import "../Contacts/Contacts.css";
+import "../../App.css";
 
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -45,7 +45,7 @@ const EditAttractions = () => {
     }    
 
     return (
-        <div className="create_contact">
+        <div className="create_forms">
             <h2>Editar Atração</h2>
             {<form onSubmit={handleSubmit}>
                 <label>

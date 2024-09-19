@@ -2,3 +2,16 @@
   min-height: 60vh;
   margin-bottom: 5em;
 }
+
+.create_forms {
+    text-align: center;
+}
+
+.create_forms h2 {
+    font-size: 2.2em;
+}
+
+.create_forms p {
+    color: #aaa;
+    margin-bottom: 2em;
+}

@@ -1,5 +1,4 @@
-import "../Contacts/Contacts.css";
-
+import "../../App.css";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
@@ -45,7 +44,7 @@ const EditTasks = () => {
     }    
 
     return (
-        <div className="create_contact">
+        <div className="create_forms">
             <h2>Editar Tarefa</h2>
             {<form onSubmit={handleSubmit}>
                 <label>

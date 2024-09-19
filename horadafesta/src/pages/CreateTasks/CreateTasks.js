@@ -1,4 +1,4 @@
-import "../Contacts/Contacts.css";
+import "../../App.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
@@ -27,12 +27,12 @@ const CreateTasks = () => {
         createdBy: user.displayName
    });
 
-    //  Redirect to home
+    //  Redireciona para a home
         navigate("/tasks");
     };
     
     return (
-        <div className="create_contact">
+        <div className="create_forms">
             <h2>Criar Tarefa</h2>
             {<form onSubmit={handleSubmit}>
                 <label>

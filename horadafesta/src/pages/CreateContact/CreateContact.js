@@ -1,4 +1,4 @@
-import "../Contacts/Contacts.css";
+import "../../App.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
@@ -36,7 +36,7 @@ const CreateContact = () => {
     };
     
     return (
-        <div className="create_contact">
+        <div className="create_forms">
             <h2>Cadastrar Contatos</h2>
             {<form onSubmit={handleSubmit}>
                 <label>

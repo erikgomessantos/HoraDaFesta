@@ -1,4 +1,4 @@
-import "../Contacts/Contacts.css";
+import "../../App.css";
 import { Link } from "react-router-dom";
 
 import { UserFetchParties } from "../../hooks/UserFetchParties";

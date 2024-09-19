@@ -1,4 +1,4 @@
-import "../Contacts/Contacts.css";
+import "../../App.css";
 import { Link } from "react-router-dom";
 
 import { UserFetchParties } from "../../hooks/UserFetchParties";
@@ -19,7 +19,7 @@ const Attractions = () => {
     // 09-09-202
 
     return (
-        <div className="create_contact">
+        <div className="create_forms">
             <h2>Atrações</h2>
             <p>Crie suas Atrações para que suas festas sejam inesquecíveis!</p>
             <Link to={"/attractions/create"}>
