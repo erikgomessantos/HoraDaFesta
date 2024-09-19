@@ -23,3 +23,19 @@
     background-color: #000;
     color: #fff;
   }
+
+  @media (max-width: 1024px) {
+    .navbar {
+        font-size: 12px;
+        padding: 0.5em;
+        flex-direction: column;
+    }
+
+    .links_list {
+      padding: 5px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+  }
