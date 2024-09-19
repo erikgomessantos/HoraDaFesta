@@ -1,0 +1,30 @@
+.attractions {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .attractions h2 {
+    font-size: 2.2em;
+    margin-bottom: 0.5em;
+  }
+  
+  .attractions p {
+    color: #aaa;
+    margin-bottom: 1em;
+  }
+
+.table_attractions {
+    display: grid;
+    grid-template-columns: 300px 300px;
+}
+
+.table_attractions span {
+    text-align: left;
+}
+
+.table_attractions p {
+    text-align: left;
+}

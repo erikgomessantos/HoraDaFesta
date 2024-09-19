@@ -1,12 +1,10 @@
-import "../Dashboard/Dashboard.css";
+import "../Attractions/Attractions.css";
 import { Link } from "react-router-dom";
 
 import { UserFetchParties } from "../../hooks/UserFetchParties";
 import { useAuthValue } from "../../context/AuthContext";
 
-// 09-09-2024
 import { UserDeleteParty } from "../../hooks/UserDeleteParty";
-// 09-09-2024
 
 const Attractions = () => {
     const {user} = useAuthValue();
@@ -19,7 +17,7 @@ const Attractions = () => {
     // 09-09-202
 
     return (
-        <div className="dashboard">
+        <div className="attractions">
             <h2>Atrações</h2>
             <p>Crie suas Atrações para que suas festas sejam inesquecíveis!</p>
             <Link to={"/attractions/create"}>
@@ -28,7 +26,7 @@ const Attractions = () => {
             {loading && <p>Carregando...</p>}
             <div className="party_header">
                 
-                <div >
+                <div className="table_attractions">
                     <span>Nome</span>
                     <span>Descrição</span>  
                 </div>
@@ -38,8 +36,11 @@ const Attractions = () => {
             </div>
 
             {attractions && attractions.map((attractions) => <div key={attractions.id} attractions={attractions} className="party_row">
+                
+                <div className="table_attractions">
                     <p>{attractions.name}</p>
                     <p>{attractions.description}</p>
+                </div>
                 
                 <div>
                 <Link to={"/dashboard"} className="btn btn-outline">
