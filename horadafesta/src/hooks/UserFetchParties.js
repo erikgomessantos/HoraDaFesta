@@ -14,7 +14,7 @@ export const UserFetchParties = (docCollection, search = null, uid = null) => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(null);
 
-    // Dealing with memory leak
+    // Lidando com memory leak
     const [cancelled, setCancelled] = useState(false);
 
     useEffect(() => {

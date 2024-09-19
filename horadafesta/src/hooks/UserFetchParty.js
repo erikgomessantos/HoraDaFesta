@@ -17,7 +17,6 @@ export const UserFetchParty = (docCollection, id) => {
 
         setDocument(docSnap.data());
       } catch (error) {
-        // console.log(error);
         setError(error.message);
       }
 

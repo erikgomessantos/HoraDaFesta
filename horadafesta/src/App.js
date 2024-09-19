@@ -9,7 +9,7 @@ import { UserAuthentication } from './hooks/userAuthentication';
 // Context
 import { AuthProvider } from './context/AuthContext';
 
-// Pages
+// Páginas
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
@@ -38,12 +38,10 @@ import Suppliers from './pages/Suppliers/Suppliers';
 import CreateSuppliers from './pages/CreateSuppliers/CreateSuppliers';
 import EditSuppliers from './pages/EditSuppliers/EditSuppliers';
 
-// 11-09-2024
 import Users from "./pages/Users/Users";
 import EditUsers from './pages/EditUsers/EditUsers';
-// 11-09-2024
 
-// Components
+// Componentes
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 

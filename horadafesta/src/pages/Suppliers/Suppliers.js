@@ -19,7 +19,7 @@ const Suppliers = () => {
     // 09-09-2024
 
     return (
-        <div className="create_contact">
+        <div className="create_forms">
             <h2>Fornecedores</h2>
             <p>Cadastre seus Fornecedores preferidos!</p>
             <Link to={"/suppliers/create"}>

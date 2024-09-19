@@ -26,7 +26,7 @@ export const UserDeleteParty = (docCollection) => {
     
     const [response, dispatch] = useReducer(deleteReducer, initialState);
 
-    // Dealing with memory leak
+    // Lidando com memory leak
     const [cancelled, setCancelled] = useState(false);
 
     const checkCancelBeforeDispatch = (action) => {

@@ -19,7 +19,7 @@ const Places = () => {
     // 09-09-2024
 
     return (
-        <div className="create_contact">
+        <div className="create_forms">
             <h2>Locais</h2>
             <p>Cadastre os locais preferidos para realizar sua festa!</p>
             <Link to={"/places/create"}>

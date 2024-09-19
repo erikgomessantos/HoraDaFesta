@@ -31,12 +31,12 @@ const CreatePlaces = () => {
         createdBy: user.displayName
    });
 
-    //  Redirect to home
+    //  Redireciona para a home
         navigate("/places");
     };
     
     return (
-        <div className="create_contact">
+        <div className="create_forms">
             <h2>Cadastrar Local</h2>
             {<form onSubmit={handleSubmit}>
                 <label>

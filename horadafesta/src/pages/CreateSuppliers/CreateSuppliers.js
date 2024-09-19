@@ -31,12 +31,12 @@ const CreateSuppliers = () => {
         createdBy: user.displayName
    });
 
-    //  Redirect to home
+    //  Redireciona para a home
         navigate("/suppliers");
     };
     
     return (
-        <div className="create_contact">
+        <div className="create_forms">
             <h2>Cadastrar Fornecedor</h2>
             {<form onSubmit={handleSubmit}>
                 <label>

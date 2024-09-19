@@ -14,7 +14,7 @@ export const UserAuthentication = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(null);
 
-    // Cleanup and Dealing with memory leak
+    // Limpando e lidando com memory leak
     const [cancelled, setCancelled] = useState(false);
 
     const auth = getAuth();
@@ -25,7 +25,7 @@ export const UserAuthentication = () => {
         }
     };
 
-    // Creating User
+    // Criando Usuário
     const createUser = async (data) => {
         checkIfIsCancelled()
 

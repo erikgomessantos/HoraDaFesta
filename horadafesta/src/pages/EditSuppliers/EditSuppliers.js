@@ -1,5 +1,4 @@
 import "../../App.css";
-
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
@@ -51,7 +50,7 @@ const EditSuppliers = () => {
     }   
 
     return (
-        <div className="create_contact">
+        <div className="create_forms">
             <h2>Cadastrar Fornecedor</h2>
             {<form onSubmit={handleSubmit}>
                 <label>
