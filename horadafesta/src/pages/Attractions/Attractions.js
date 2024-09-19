@@ -1,4 +1,4 @@
-import "../../App.css";
+import "../Dashboard/Dashboard.css";
 import { Link } from "react-router-dom";
 
 import { UserFetchParties } from "../../hooks/UserFetchParties";
@@ -19,20 +19,29 @@ const Attractions = () => {
     // 09-09-202
 
     return (
-        <div className="create_forms">
+        <div className="dashboard">
             <h2>Atrações</h2>
             <p>Crie suas Atrações para que suas festas sejam inesquecíveis!</p>
             <Link to={"/attractions/create"}>
                 <button className="btn">Criar</button>
             </Link>
-
-
             {loading && <p>Carregando...</p>}
+            <div className="party_header">
+                
+                <div >
+                    <span>Nome</span>
+                    <span>Descrição</span>  
+                </div>
+                <div>
+                    <span>Ações</span>
+                </div>    
+            </div>
 
-
-            {attractions && attractions.map((attractions) => <p key={attractions.id} attractions={attractions} className="party_row">
-                <span>Nome:{attractions.name}</span>
-                <span>Descrição:{attractions.description}</span>
+            {attractions && attractions.map((attractions) => <div key={attractions.id} attractions={attractions} className="party_row">
+                    <p>{attractions.name}</p>
+                    <p>{attractions.description}</p>
+                
+                <div>
                 <Link to={"/dashboard"} className="btn btn-outline">
                     Adicionar à Festa
                 </Link>
@@ -42,7 +51,8 @@ const Attractions = () => {
                 <button onClick={() => deleteDocument(attractions.id)} className="btn btn-outline btn-danger">
                     Excluir
                 </button>
-            </p>)}
+                </div>
+            </div>)}
             {/* {attractions && attractions.length === 0 && (
                 <div className="noparties">
                     <p>Ainda não foram criadas Atrações</p>
