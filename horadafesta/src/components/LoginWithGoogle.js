@@ -1,3 +1,4 @@
+import "../components/LoginWithGoogle.css";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase/config";
 import google from "../components/google.png";
@@ -16,7 +17,7 @@ function LoginWithGoogle() {
     return (
         <div>
             <p>Ou</p>
-            <p style={{cursor: "pointer"}} onClick={googleLogin}><img src={google} alt="fon"/>Login com Google </p>
+            <button className="btn-google" onClick={googleLogin}><img src={google} alt="google"/>Login com Google </button>
         </div>
     )
 };

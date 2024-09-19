@@ -31,7 +31,7 @@ const CreateContact = () => {
         createdBy: user.displayName
    });
 
-    //  Redirect to home
+    //  Redireciona para a home
         navigate("/contacts");
     };
     
