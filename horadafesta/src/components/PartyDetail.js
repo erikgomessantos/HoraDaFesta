@@ -13,7 +13,7 @@ const PartyDetail = ({ party }) => {
             <p>Fornecedores: {party.suppliers}</p>
             <p className="createdby">Festa criada por:{party.createdBy}</p>
             <Link to={`/party/${party.id}`} className="btn btn-outline">
-                Ver            
+                Ver Festa Individual           
             </Link>
         </div>
     )
