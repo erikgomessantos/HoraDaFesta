@@ -50,7 +50,6 @@ const CreateTasks = () => {
                     <input type="date"
                         name="date"
                         placeholder="Insira a data que está criando sua tarefa"
-                        required
                         onChange={(e) => setDate(e.target.value)}
                         value={date}  
                     />

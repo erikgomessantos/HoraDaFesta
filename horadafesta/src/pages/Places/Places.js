@@ -1,12 +1,10 @@
-import "../../App.css";
+import "../Places/Places.css";
 import { Link } from "react-router-dom";
 
 import { UserFetchParties } from "../../hooks/UserFetchParties";
 import { useAuthValue } from "../../context/AuthContext";
 
-// 09-09-2024
 import { UserDeleteParty } from "../../hooks/UserDeleteParty";
-// 09-09-2024
 
 const Places = () => {
     const {user} = useAuthValue();
@@ -14,12 +12,10 @@ const Places = () => {
 
     const {documents: places, loading} = UserFetchParties("places", null, uid);
     
-    // 09-09-2024
     const {deleteDocument} = UserDeleteParty("places");
-    // 09-09-2024
 
     return (
-        <div className="create_forms">
+        <div className="places">
             <h2>Locais</h2>
             <p>Cadastre os locais preferidos para realizar sua festa!</p>
             <Link to={"/places/create"}>
@@ -28,33 +24,39 @@ const Places = () => {
 
             {loading && <p>Carregando...</p>}
 
-            {places && places.map((places) => <p key={places.id} places={places} className="party_row">
-                <span>Nome:{places.name}</span>
-                <span>Endereço:{places.address}</span>
-                <span>Bairro:{places.neighbor}</span>
-                <span>Número:{places.number}</span>
-                <Link to={"/dashboard"} className="btn btn-outline">
-                    Adicionar à Festa
-                </Link>
-                <Link to={`/places/edit/${places.id}`} className="btn btn-outline">
-                    Editar
-                </Link>
-                <button onClick={() => deleteDocument(places.id)} className="btn btn-outline btn-danger">
-                    Excluir
-                </button>
-            </p>)}
-
-            {/* {places && places.length === 0 && (
-                <div className="noparties">
-                    <p>Ainda não foram cadastrados Locais</p>
-                    <Link to="/places/create" className="btn">Cadastrar</Link>
+            <div className="places_header">   
+                <div className="table_places">
+                    <span>Nome do Espaço/Local</span>
+                    <span>Endereço</span>    
+                    <span>Bairro</span>
+                    <span>Número</span>
                 </div>
-            )} */}
+                <div className="places_font-size">
+                    <span>Ações</span>
+                </div>    
+            </div>
 
-            {/* 
-            <Link to={"/places/create"}>
-                <button className="btn">Cadastrar</button>
-            </Link> */}
+            {places && places.map((places) => <div key={places.id} places={places} className="places_row">
+                
+                <div className="table_places">
+                    <p>{places.name}</p>
+                    <p>{places.address}</p>
+                    <p>{places.neighbor}</p>
+                    <p>{places.number}</p>
+                </div>
+                
+                <div className="places_responsive">
+                    <Link to={"/dashboard"} className="places_btn places_btn-outline">
+                        Adicionar à Festa
+                    </Link>
+                    <Link to={`/places/edit/${places.id}`} className="places_btn places_btn-outline">
+                        Editar
+                    </Link>
+                    <button onClick={() => deleteDocument(places.id)} className="places_btn places_btn-outline places_btn-danger">
+                        Excluir
+                    </button>
+                </div>    
+            </div>)}
         </div>
     );
 };

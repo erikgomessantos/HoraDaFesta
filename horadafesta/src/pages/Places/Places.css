@@ -1,4 +1,4 @@
-.contacts {
+.places {
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -6,17 +6,17 @@
     align-items: center;
   }
 
-  .contacts h2 {
+  .places h2 {
     font-size: 2.2em;
     margin-bottom: 0.5em;
   }
   
-  .contacts p {
+  .places p {
     color: #aaa;
     margin-bottom: 1em;
   }
 
-  .contacts_header {
+  .places_header {
     display: flex;
     justify-content: space-between;
     font-weight: bold;
@@ -25,7 +25,7 @@
     padding: 10px;
   }
 
-  .contacts_row {
+  .places_row {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,32 +34,32 @@
     padding: 10px;
   }
   
-  .contacts_row p {
+  .places_row p {
     color: #000;
   }
   
-  .contacts_row button,
-  .contacts_row a {
+  .places_row button,
+  .places_row a {
     margin: 0 5px;
     height: 30px;
     width: 100px;
     font-size: 0.7em;
   }
 
-.table_contacts {
+.table_places {
     display: grid;
-    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px 200px; 
 }
 
-.table_contacts span {
+.table_places span {
     text-align: left;
 }
 
-.table_contacts p {
+.table_places p {
     text-align: left;
 }
 
-.contacts_btn {
+.places_btn {
     background-color: #1a8918;
     color: #fff;
     text-align: center;
@@ -72,7 +72,7 @@
     font-size: 1em;
   }
 
-.contacts_btn-outline {
+.places_btn-outline {
     background-color: transparent;
     border-radius: 0;
     color: #000;
@@ -80,52 +80,52 @@
     padding: 7px 30px;
   }
 
-  .contacts_btn-danger:hover {
+  .places_btn-danger:hover {
     background-color: #dc3545;
   }
 
 
 /* @media (max-width: 767px) {
-    .table_contacts {
+    .table_places {
         grid-template-columns: 100px 100px;
         font-size: 12px;
     }
 
-    .contacts_responsive {
+    .places_responsive {
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
 
-    .contacts_row a {
+    .places_row a {
         margin: 0;
         width: 80px;
     }
 
-    .contacts_btn-outline {
+    .places_btn-outline {
         padding: 0;
       }
 
-    .contacts_row button,
-    .contacts_row a {
+    .places_row button,
+    .places_row a {
     margin: 0;
     width: 82px;
   }
 
-  .contacts_font-size {
+  .places_font-size {
     font-size: 12px;
   }
 
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-    .table_contacts {
+    .table_places {
         grid-template-columns: 100px 100px;
     }
 }
 
 @media (min-width: 1024px) and (max-width: 1279px) {
-    .table_contacts {
+    .table_places {
         grid-template-columns: 200px 200px;
     }
 }; */
