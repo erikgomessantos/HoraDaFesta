@@ -12,9 +12,7 @@ const Attractions = () => {
 
     const {documents: attractions, loading} = UserFetchParties("attractions", null, uid);
 
-    // 09-09-2024
     const {deleteDocument} = UserDeleteParty("attractions");
-    // 09-09-202
 
     return (
         <div className="attractions">
@@ -24,47 +22,36 @@ const Attractions = () => {
                 <button className="btn">Criar</button>
             </Link>
             {loading && <p>Carregando...</p>}
-            <div className="party_header">
-                
+
+            <div className="attractions_header">
                 <div className="table_attractions">
                     <span>Nome</span>
                     <span>Descrição</span>  
                 </div>
-                <div>
+                <div className="attraction_font-size">
                     <span>Ações</span>
                 </div>    
             </div>
 
-            {attractions && attractions.map((attractions) => <div key={attractions.id} attractions={attractions} className="party_row">
+            {attractions && attractions.map((attractions) => <div key={attractions.id} attractions={attractions} className="attractions_row">
                 
                 <div className="table_attractions">
                     <p>{attractions.name}</p>
                     <p>{attractions.description}</p>
                 </div>
                 
-                <div>
-                <Link to={"/dashboard"} className="btn btn-outline">
-                    Adicionar à Festa
-                </Link>
-                <Link to={`/attractions/edit/${attractions.id}`} className="btn btn-outline">
-                    Editar
-                </Link>
-                <button onClick={() => deleteDocument(attractions.id)} className="btn btn-outline btn-danger">
-                    Excluir
-                </button>
+                <div className="attractions_responsive">
+                    <Link to={"/dashboard"} className="attractions_btn attractions_btn-outline">
+                        Adicionar à Festa
+                    </Link>
+                    <Link to={`/attractions/edit/${attractions.id}`} className="attractions_btn attractions_btn-outline">
+                        Editar
+                    </Link>
+                    <button onClick={() => deleteDocument(attractions.id)} className="attractions_btn attractions_btn-outline attractions_btn-danger">
+                        Excluir
+                    </button>
                 </div>
             </div>)}
-            {/* {attractions && attractions.length === 0 && (
-                <div className="noparties">
-                    <p>Ainda não foram criadas Atrações</p>
-                    <Link to="/attractions/create" className="btn">Criar</Link>
-                </div>
-            )} */}
-
-            {/* 
-            <Link to={"/attractions/create"}>
-                <button className="btn">Criar</button>
-            </Link> */}
         </div>
     );
 };
