@@ -1,5 +1,4 @@
 import "../Home/Home.css";
-
 import { Link } from "react-router-dom";
 import { UserFetchParties } from "../../hooks/UserFetchParties";
 import PartyDetail from "../../components/PartyDetail";
