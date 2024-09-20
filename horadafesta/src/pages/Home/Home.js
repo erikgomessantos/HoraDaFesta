@@ -1,8 +1,6 @@
 import "../Home/Home.css";
 
-// Hooks
 import { Link } from "react-router-dom";
-// import { useState } from "react";
 import { UserFetchParties } from "../../hooks/UserFetchParties";
 import PartyDetail from "../../components/PartyDetail";
 import { useAuthValue } from "../../context/AuthContext";

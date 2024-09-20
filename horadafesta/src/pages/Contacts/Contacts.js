@@ -26,9 +26,9 @@ const Contact = () => {
 
             <div className="contacts_header">   
                 <div className="table_contacts">
-                    <span>Nome</span>
-                    <span>Apelido</span>
-                    <span>E-mail</span>  
+                    <span className="span_contacts-responsive">Nome</span>
+                    <span className="span_contacts-responsive">Apelido</span>
+                    <span className="span_contacts-responsive">E-mail</span>  
                     <span>Telefone</span>    
                 </div>
                 <div className="contacts_font-size">
