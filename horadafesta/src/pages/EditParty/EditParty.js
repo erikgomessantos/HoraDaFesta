@@ -4,30 +4,22 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuthValue } from "../../context/AuthContext";
 import { UserUpdateParty } from "../../hooks/UserUpdateParty";
 import { UserFetchParty } from "../../hooks/UserFetchParty";
-
-// 05-09-2024
 import { UserFetchParties } from "../../hooks/UserFetchParties";
-// 05-09-2024
-
 
 const EditParty = () => {
     const {id} = useParams();
     const {document: party} = UserFetchParty("parties", id);
 
-    // 05-09-2024
     const {documents: contacts} = UserFetchParties("contacts", null);
-    // 05-09-2024
 
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
     
-    //04-09-2024
     const [name, setName] = useState("");
     const [attractionsName, setAttractionsName] = useState("");
     const [tasksDescription, setTasksDescription] = useState("");
     const [places, setPlaces] = useState("");
     const [suppliers, setSuppliers] = useState("");
-    //04-09-2024
 
     const [formError, setFormError] = useState("");
 
@@ -36,14 +28,11 @@ const EditParty = () => {
 
             setTitle(party.title)
             setImage(party.image)
-            
-            //04-09-2024
             setName(party.name)
             setAttractionsName(party.attractionsName)
             setTasksDescription(party.tasksDescription)
             setPlaces(party.places)
             setSuppliers(party.suppliers)
-            //04-09-2024
         }
     }, [party])
     
@@ -55,7 +44,7 @@ const EditParty = () => {
         e.preventDefault();
         setFormError("");
 
-        // URL Validation
+        // Validação da URL
         try {
 
             new URL(image)
@@ -71,28 +60,20 @@ const EditParty = () => {
         const data = {
             title,
             image,
-            
-            // 04-09-2024
             name,
             attractionsName,
             tasksDescription,
             places,
             suppliers,
-            // 04-09-2024
-
             uid: user.uid,
             createdBy: user.displayName
         };
         
        updateDocument(id, data);
 
-        // Redirect to home
+        // Redireciona para a Home
         navigate("/dashboard");
     };
-
-    // 05-09-2024
-    // const [options] = useState([""]);
-    // 05-09-2024
     
     return (
         <div className="edit_party">

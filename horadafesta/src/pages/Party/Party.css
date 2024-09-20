@@ -9,3 +9,10 @@
   .party_container img {
     max-width: 600px;
   }
+
+  @media (max-width: 767px) {
+    .party_container img {
+      max-width: 320px;
+    }
+
+}  

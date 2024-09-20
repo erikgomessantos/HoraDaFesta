@@ -1,6 +1,4 @@
 import "../Party/Party.css";
-
-// Hooks
 import { useParams } from "react-router-dom";
 import { UserFetchParty } from "../../hooks/UserFetchParty";
 
