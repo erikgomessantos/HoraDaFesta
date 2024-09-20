@@ -57,3 +57,16 @@
     width: 100px;
     font-size: 0.7em;
   }
+
+@media (max-width: 900px) {
+  .dashboard_responsive {
+    display: flex;
+        flex-direction: column;
+        gap: 10px;
+  }
+
+  .btn.btn-outline {
+    padding: 0;
+  } 
+
+}  

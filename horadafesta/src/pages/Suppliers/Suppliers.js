@@ -26,10 +26,10 @@ const Suppliers = () => {
 
             <div className="suppliers_header">   
                 <div className="table_suppliers">
-                    <span>Nome do Fornecedor</span>
-                    <span>CNPJ/CPF</span>    
-                    <span>Contato</span>
-                    <span>Serviço</span>
+                    <span className="span_suppliers-responsive">Nome do Fornecedor</span>
+                    <span className="span_suppliers-responsive">CNPJ/CPF</span>    
+                    <span className="span_suppliers-responsive">Contato</span>
+                    <span className="span_suppliers-responsive">Serviço</span>
                 </div>
                 <div className="suppliers_font-size">
                     <span>Ações</span>
@@ -45,7 +45,7 @@ const Suppliers = () => {
                     <p>{suppliers.service}</p>
                 </div>
                 
-                <div>
+                <div className="suppliers_responsive">
                     <Link to={"/dashboard"} className="suppliers_btn suppliers_btn-outline">
                         Adicionar à Festa
                     </Link>

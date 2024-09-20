@@ -47,7 +47,7 @@ const Dashboard = () => {
 
                 {parties && parties.map((party) => <div key={party.id} className="party_row">
                     <p>{party.title}</p>
-                    <div>
+                    <div className="dashboard_responsive">
                         <Link to={`/party/${party.id}`} className="btn btn-outline">
                             Ver
                         </Link>

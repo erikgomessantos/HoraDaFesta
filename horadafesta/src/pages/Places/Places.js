@@ -26,9 +26,9 @@ const Places = () => {
 
             <div className="places_header">   
                 <div className="table_places">
-                    <span>Nome do Espaço/Local</span>
-                    <span>Endereço</span>    
-                    <span>Bairro</span>
+                    <span className="span_places-responsive">Nome do Espaço/Local</span>
+                    <span className="span_places-responsive">Endereço</span>    
+                    <span className="span_places-responsive">Bairro</span>
                     <span>Número</span>
                 </div>
                 <div className="places_font-size">
