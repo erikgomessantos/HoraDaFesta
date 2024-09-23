@@ -11,12 +11,9 @@ const Party = () => {
     
     if(party) {
          viewers = [
-            // {Título:1,Contatos:2,Atrações:3,Tarefas:4,Locais:5, Fornecedores:6}
-            {Título: party.title, Nome: party.name},
-            {Atrações: party.attractionsName}
-        
+            {Título: party.title, Nome: party.name, Atrações: party.attractionsName, Tarefas: party.tasksDescription, Local: party.places, Fornecedores: party.suppliers}
         ]
-    }
+    };
 
     return (
         <div className="party_container">
