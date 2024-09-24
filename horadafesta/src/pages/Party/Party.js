@@ -11,7 +11,7 @@ const Party = () => {
     
     if(party) {
          viewers = [
-            {Título: party.title, Nome: party.name, Atrações: party.attractionsName, Tarefas: party.tasksDescription, Local: party.places, Fornecedores: party.suppliers}
+            {Título: party.title, Nome: Array.isArray(party.name) ? party.name.join(', ') : party.name, Atrações: Array.isArray(party.attractionsName) ? party.attractionsName.join(', ') : party.attractionsName, Tarefas: party.tasksDescription, Local: party.places, Fornecedores: party.suppliers}
         ]
     };
 
@@ -22,8 +22,14 @@ const Party = () => {
                 <>
                     <h1>Nome da festa: {party.title}</h1>
                     <img src={party.image}  alt={party.title}/>
-                    <p>Lista de Contatos:{party.name}</p>
-                    <p>Atrações:{party.attractionsName}</p>
+                    <div>
+                        <p>Lista de Contatos: {Array.isArray(party.name) ? party.name.join(', ') : party.name}</p>
+                    </div>
+
+                    <div>
+                        <p>Atrações:{Array.isArray(party.attractionsName) ? party.attractionsName.join(', ') : party.attractionsName}</p>
+                    </div>
+                    
                     <p>Tarefas/Lembretes: {party.tasksDescription}</p>
                     <p>Local: {party.places}</p>
                     <p>Fornecedores: {party.suppliers}</p>

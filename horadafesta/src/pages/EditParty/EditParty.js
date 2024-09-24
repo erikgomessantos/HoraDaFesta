@@ -11,6 +11,7 @@ const EditParty = () => {
     const {document: party} = UserFetchParty("parties", id);
 
     const {documents: contacts} = UserFetchParties("contacts", null);
+    // const {documents: attractions} = UserFetchParties("attractions", null || "");
 
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
@@ -30,9 +31,9 @@ const EditParty = () => {
             setImage(party.image)
             setName(party.name)
             setAttractionsName(party.attractionsName)
-            setTasksDescription(party.tasksDescription)
-            setPlaces(party.places)
-            setSuppliers(party.suppliers)
+            // setTasksDescription(party.tasksDescription)
+            // setPlaces(party.places)
+            // setSuppliers(party.suppliers)
         }
     }, [party])
     
@@ -109,53 +110,30 @@ const EditParty = () => {
                          alt={party.title}
                         />
                         
-                        {/* 04-09-2024 */}
-                        {/* <label>
-                            <span>Nome do Contato:</span>
-                            <input type="text"
-                                name="name"
-                                placeholder="Informe o nome do seu contato"
-                                onChange={(e) => setName(e.target.value)}
-                                value={name}  
-                            />
-                        </label> */}
-
-                        {/* 05-09-2024 */}
-                        {/* {contacts && contacts.map((contacts) => <p key={contacts.id} contacts={contacts}>
-                        <select>
-                            <option>Selecione os Contatos</option>
-                                {options.map(option => (
-                                <option key={contacts.id} value={contacts.name}>
-                                    {contacts.name}
-                                </option>
-                            ))}
-                        </select>
-                        </p>)}     */}
-                        
-                        <select 
-                        name="name"
-                        multiple={false}
-                        onChange={(e) => setName(e.target.value)}
-                        value={[name]}
-                        >
-                            <option>Selecione os Contatos</option>
-                            {contacts.map((contacts, i) => {
-                                return <option key={i}>{contacts.name}</option>
-                            })}
-                        </select>
-
-                        
-                        {/* 05-09-2024 */}
-
-                        <label>
-                            <span>Atrações:</span>
-                            <input type="text"
-                                name="attractionsName"
-                                placeholder="Descreva suas atrações"
-                                onChange={(e) => setAttractionsName(e.target.value)}
-                                value={attractionsName}  
-                            />
-                        </label>
+                        <div>
+                            <h3>Selecione os Contatos:</h3>
+                            <div className="contacts-list">
+                                {contacts.map((contacts, i) => (
+                                    <div
+                                        key={i}
+                                        className={`contact-item ${name.includes(contacts.name) ? 'selected' : ''}`}
+                                        onClick={() => {
+                                            setName(prev => {
+                                                if (prev.includes(contacts.name)) {
+                                                    // Remove o contato se já estiver selecionado
+                                                    return prev.filter(item => item !== contacts.name);
+                                                } else {
+                                                    // Adiciona o contato se não estiver selecionado
+                                                    return [...prev, contacts.name];
+                                                }
+                                            });
+                                        }}
+                                    >
+                                        {contacts.name}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
 
                         <label>
                             <span>Tarefas:</span>

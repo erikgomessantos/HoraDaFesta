@@ -21,3 +21,39 @@
     max-width: 100%;
     margin-bottom: 1em;
 }
+
+.contacts-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-item {
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+.contact-item.selected {
+    background-color: #007bff; /* Cor para o item selecionado */
+    color: white;
+}
+
+.attractions-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.attractions-item {
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+    border-radius: 4px;
+}
+
+.attractions-item.selected {
+    background-color: #007bff; /* Cor para o item selecionado */
+    color: white;
+}
