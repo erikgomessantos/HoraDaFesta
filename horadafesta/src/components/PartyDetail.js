@@ -5,8 +5,8 @@ const PartyDetail = ({ party }) => {
     return (
         <div className="party_detail">
             <img src={party.image} alt={party.title}/>
-            <h2>Nome da festa:{party.title}</h2>
-            <p>Lista de Contatos:{party.name}</p>
+            <h2>Nome da festa: {party.title}</h2>
+            <p>Lista de Contatos: {party.name}</p>
             <p>Atrações:{party.attractionsName}</p>
             <p>Tarefas/Lembretes: {party.tasksDescription}</p>
             <p>Local: {party.places}</p>
