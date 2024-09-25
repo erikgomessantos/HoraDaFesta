@@ -15,7 +15,7 @@ const Party = () => {
                 Nome: Array.isArray(party.name) ? party.name.join(', ') : party.name,
                 Atrações: Array.isArray(party.attractionsName) ? party.attractionsName.join(', ') : party.attractionsName,
                 Tarefas: Array.isArray(party.tasksDescription) ? party.tasksDescription.join(', ') : party.tasksDescription,
-                Local: party.places,
+                Local: Array.isArray(party.places) ? party.places.join(', ') : party.places,
                 Fornecedores: Array.isArray(party.suppliers) ? party.suppliers.join(', ') : party.suppliers
             }
         ]
@@ -37,7 +37,9 @@ const Party = () => {
                     <div>
                         <p>Tarefas: {Array.isArray(party.tasksDescription) ? party.tasksDescription.join(', ') : party.tasksDescription}</p>
                     </div>
-                    <p>Local: {party.places}</p>
+                    <div>
+                        <p>Locais: {Array.isArray(party.places) ? party.places.join(', ') : party.places}</p>
+                    </div>
                     <p>Fornecedores: {party.suppliers}</p>
                     <p className="createdby">Festa criada por:{party.createdBy}</p>
                     {viewers.length > 0 && (

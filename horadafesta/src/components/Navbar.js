@@ -9,11 +9,11 @@ const Navbar = () => {
     const {logout} = UserAuthentication();
 
     return <nav className="navbar">
-        <NavLink to="#">
+        <NavLink to="/">
             Hora da Festa
         </NavLink>
         <ul className="links_list">
-            {user && user.uid !== `1SUHyXH3UzeF875EeyoFgA2w5sp2` && (
+            {user &&  (
                <>
                     <li>
                         <NavLink to="/">Home</NavLink>

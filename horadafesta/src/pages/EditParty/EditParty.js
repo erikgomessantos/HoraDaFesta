@@ -13,6 +13,7 @@ const EditParty = () => {
     const {documents: contacts} = UserFetchParties("contacts", null);
     const {documents: attractions} = UserFetchParties("attractions", null);
     const {documents: tasks} = UserFetchParties("tasks", null);
+    const {documents: place} = UserFetchParties("places", null);
     const {documents: supplier} = UserFetchParties("suppliers", null);
 
     const [title, setTitle] = useState("");
@@ -175,15 +176,28 @@ const EditParty = () => {
                             </div>
                         </div>
 
-                        <label>
-                            <span>Local:</span>
-                            <input type="text"
-                                name="places"
-                                placeholder="Cadastre seus lugares favoritos para comemorar suas festas"
-                                onChange={(e) => setPlaces(e.target.value)}
-                                value={places}  
-                            />
-                        </label>
+                        <div>
+                            <h3>Selecione os Locais:</h3>
+                            <div className="contacts-list">
+                                {place.map((place, i) => (
+                                    <div
+                                        key={i}
+                                        className={`contact-item ${places.includes(place.name) ? 'selected' : ''}`}
+                                        onClick={() => {
+                                            setPlaces(prev => {
+                                                if (prev.includes(place.name)) {
+                                                    return prev.filter(item => item !== place.name);
+                                                } else {
+                                                    return [...prev, place.name];
+                                                }
+                                            });
+                                        }}
+                                    >
+                                        {place.name}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
 
                         <div>
                             <h3>Selecione os Fornecedores:</h3>

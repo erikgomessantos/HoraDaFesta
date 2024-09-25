@@ -6,7 +6,6 @@ const PartyDetail = ({ party }) => {
         <div className="party_detail">
             <img src={party.image} alt={party.title}/>
             <h2>Nome da festa: {party.title}</h2>
-            {/* <p>Lista de Contatos: {party.name}</p> */}
             <div>
                 <p>Lista de Contatos: {Array.isArray(party.name) ? party.name.join(', ') : party.name}</p>
             </div>
@@ -16,7 +15,7 @@ const PartyDetail = ({ party }) => {
             <div>
                 <p>Tarefas: {Array.isArray(party.tasksDescription) ? party.tasksDescription.join(', ') : party.tasksDescription}</p>
             </div>
-            <p>Local: {party.places}</p>
+            <p>Locais: {Array.isArray(party.places) ? party.places.join(', ') : party.places}</p>
             <div>
                 <p>Fornecedores: {Array.isArray(party.suppliers) ? party.suppliers.join(', ') : party.suppliers}</p>
             </div>

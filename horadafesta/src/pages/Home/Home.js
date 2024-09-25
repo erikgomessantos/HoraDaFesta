@@ -13,7 +13,7 @@ const Home = () => {
     const {documents: parties, loading} = UserFetchParties("parties", null, uid);
     return (
         <div className="home">
-            <h2>Veja suas festas</h2>
+            <h2>Seja bem vindo(a) ao Hora Da Festa</h2>
             <div>
                 {loading && <p>Carregando...</p>}
                 {parties && parties.map((party) => <PartyDetail key={party.id} party={party}/>)}
