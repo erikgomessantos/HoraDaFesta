@@ -158,18 +158,18 @@ const EditParty = () => {
                                 {tasks.map((tasks, i) => (
                                     <div
                                         key={i}
-                                        className={`contact-item ${tasksDescription.includes(tasks.name) ? 'selected' : ''}`}
+                                        className={`contact-item ${tasksDescription.includes(tasks.description) ? 'selected' : ''}`}
                                         onClick={() => {
                                             setTasksDescription(prev => {
-                                                if (prev.includes(tasks.name)) {
-                                                    return prev.filter(item => item !== tasks.name);
+                                                if (prev.includes(tasks.description)) {
+                                                    return prev.filter(item => item !== tasks.description);
                                                 } else {
-                                                    return [...prev, tasks.name];
+                                                    return [...prev, tasks.description];
                                                 }
                                             });
                                         }}
                                     >
-                                        {tasks.name}
+                                        {tasks.description}
                                     </div>
                                 ))}
                             </div>
