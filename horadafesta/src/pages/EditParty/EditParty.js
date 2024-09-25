@@ -11,7 +11,9 @@ const EditParty = () => {
     const {document: party} = UserFetchParty("parties", id);
 
     const {documents: contacts} = UserFetchParties("contacts", null);
-    // const {documents: attractions} = UserFetchParties("attractions", null || "");
+    const {documents: attractions} = UserFetchParties("attractions", null);
+    const {documents: tasks} = UserFetchParties("tasks", null);
+    const {documents: supplier} = UserFetchParties("suppliers", null);
 
     const [title, setTitle] = useState("");
     const [image, setImage] = useState("");
@@ -26,14 +28,8 @@ const EditParty = () => {
 
     useEffect(() => {
         if(party) {
-
             setTitle(party.title)
             setImage(party.image)
-            setName(party.name)
-            setAttractionsName(party.attractionsName)
-            // setTasksDescription(party.tasksDescription)
-            // setPlaces(party.places)
-            // setSuppliers(party.suppliers)
         }
     }, [party])
     
@@ -120,10 +116,8 @@ const EditParty = () => {
                                         onClick={() => {
                                             setName(prev => {
                                                 if (prev.includes(contacts.name)) {
-                                                    // Remove o contato se já estiver selecionado
                                                     return prev.filter(item => item !== contacts.name);
                                                 } else {
-                                                    // Adiciona o contato se não estiver selecionado
                                                     return [...prev, contacts.name];
                                                 }
                                             });
@@ -135,18 +129,54 @@ const EditParty = () => {
                             </div>
                         </div>
 
-                        <label>
-                            <span>Tarefas:</span>
-                            <input type="text"
-                                name="tasksDescription"
-                                placeholder="Descreva suas tarefas para que não esqueça de nada"
-                                onChange={(e) => setTasksDescription(e.target.value)}
-                                value={tasksDescription}  
-                            />
-                        </label>
+                        <div>
+                            <h3>Selecione as Atrações:</h3>
+                            <div className="contacts-list">
+                                {attractions.map((attractions, i) => (
+                                    <div
+                                        key={i}
+                                        className={`contact-item ${attractionsName.includes(attractions.name) ? 'selected' : ''}`}
+                                        onClick={() => {
+                                            setAttractionsName(prev => {
+                                                if (prev.includes(attractions.name)) {
+                                                    return prev.filter(item => item !== attractions.name);
+                                                } else {
+                                                    return [...prev, attractions.name];
+                                                }
+                                            });
+                                        }}
+                                    >
+                                        {attractions.name}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3>Selecione as Tarefas:</h3>
+                            <div className="contacts-list">
+                                {tasks.map((tasks, i) => (
+                                    <div
+                                        key={i}
+                                        className={`contact-item ${tasksDescription.includes(tasks.name) ? 'selected' : ''}`}
+                                        onClick={() => {
+                                            setTasksDescription(prev => {
+                                                if (prev.includes(tasks.name)) {
+                                                    return prev.filter(item => item !== tasks.name);
+                                                } else {
+                                                    return [...prev, tasks.name];
+                                                }
+                                            });
+                                        }}
+                                    >
+                                        {tasks.name}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
 
                         <label>
-                            <span>Locais:</span>
+                            <span>Local:</span>
                             <input type="text"
                                 name="places"
                                 placeholder="Cadastre seus lugares favoritos para comemorar suas festas"
@@ -155,16 +185,28 @@ const EditParty = () => {
                             />
                         </label>
 
-                        <label>
-                            <span>Fornecedores:</span>
-                            <input type="text"
-                                name="suppliers"
-                                placeholder="Cadastre seus fornecedores"
-                                onChange={(e) => setSuppliers(e.target.value)}
-                                value={suppliers}  
-                            />
-                        </label>
-                        {/* 04-09-2024 */}
+                        <div>
+                            <h3>Selecione os Fornecedores:</h3>
+                            <div className="contacts-list">
+                                {supplier.map((supplier, i) => (
+                                    <div
+                                        key={i}
+                                        className={`contact-item ${suppliers.includes(supplier.name) ? 'selected' : ''}`}
+                                        onClick={() => {
+                                            setSuppliers(prev => {
+                                                if (prev.includes(supplier.name)) {
+                                                    return prev.filter(item => item !== supplier.name);
+                                                } else {
+                                                    return [...prev, supplier.name];
+                                                }
+                                            });
+                                        }}
+                                    >
+                                        {supplier.name}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>  
 
                         {!response.loading && <button className="btn">Editar</button>}
                         {response.loading && (
