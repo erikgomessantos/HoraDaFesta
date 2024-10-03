@@ -1,3 +1,4 @@
+import "../../App.css";
 import "../Attractions/Attractions.css";
 import { Link } from "react-router-dom";
 
@@ -15,7 +16,7 @@ const Attractions = () => {
     const {deleteDocument} = UserDeleteParty("attractions");
 
     return (
-        <div className="attractions">
+        <div className="attractions cntr">
             <h2>Atrações</h2>
             <p>Crie suas Atrações para que suas festas sejam inesquecíveis!</p>
             <Link to={"/attractions/create"}>

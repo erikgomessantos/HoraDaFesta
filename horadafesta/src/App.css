@@ -15,3 +15,11 @@
     color: #aaa;
     margin-bottom: 2em;
 }
+
+.cntr {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
