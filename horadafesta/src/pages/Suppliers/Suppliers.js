@@ -1,3 +1,4 @@
+import "../../App.css";
 import "../Suppliers/Suppliers.css";
 import { Link } from "react-router-dom";
 
@@ -15,7 +16,7 @@ const Suppliers = () => {
     const {deleteDocument} = UserDeleteParty("suppliers");
 
     return (
-        <div className="suppliers">
+        <div className="suppliers cntr">
             <h2>Fornecedores</h2>
             <p>Cadastre seus Fornecedores preferidos!</p>
             <Link to={"/suppliers/create"}>

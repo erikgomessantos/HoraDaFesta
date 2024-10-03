@@ -1,3 +1,4 @@
+import "../../App.css";
 import "../Users/Users.css";
 import { Link } from "react-router-dom";
 import { UserFetchParties } from "../../hooks/UserFetchParties";
@@ -24,7 +25,7 @@ const Users = () => {
     }
 
     return (
-        <div className="users">
+        <div className="users cntr">
             <h2>Usuários</h2>
             <p>Gerencie os usuários do Sistema!</p>
 

@@ -1,3 +1,4 @@
+import "../../App.css";
 import "../Tasks/Tasks.css";
 import { Link } from "react-router-dom";
 
@@ -15,7 +16,7 @@ const Tasks = () => {
     const {deleteDocument} = UserDeleteParty("tasks");
 
     return (
-        <div className="tasks">
+        <div className="tasks cntr">
             <h2>Tarefas</h2>
             <p>Crie suas tarefas para que não se esqueça de nada!</p>
             <Link to={"/tasks/create"}>
